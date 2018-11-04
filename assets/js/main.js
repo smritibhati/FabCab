@@ -28,6 +28,7 @@
 					$body.removeClass('is-loading');
 				}, 100);
 			});
+			
 
 		// Prioritize "important" elements on medium.
 			skel.on('+medium -medium', function() {
@@ -62,5 +63,6 @@
 					.css('transition', 'none');
 
 	});
+	
 
 })(jQuery);
