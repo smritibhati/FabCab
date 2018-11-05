@@ -1,0 +1,39 @@
+{
+  "name": "datepickerx",
+  "title": "DatePickerX",
+  "description": "Cool light visual date picker on pure JavaScript",
+  "version": "1.0.5",
+  "homepage": "https://datepickerx.avrora.team",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AvroraTeam/DatePickerX"
+  },
+  "contributors": [
+    {
+      "name": "Alexander Krupko",
+      "email": "alex@avrora.team",
+      "url": "www.avrora.team"
+    }
+  ],
+  "keywords": [
+    "DatePickerX",
+    "javascript",
+    "library"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-autoprefixer": "^3.0.4",
+    "grunt-combine-media-queries": "^1.0.20",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-cssmin": "^1.0.1",
+    "grunt-contrib-uglify": "^1.0.1",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-sass": "^2.1.0",
+    "load-grunt-tasks": "^3.5.0",
+    "npm": "^6.1.0",
+    "time-grunt": "^1.4.0"
+  },
+  "dependencies": {}
+}
