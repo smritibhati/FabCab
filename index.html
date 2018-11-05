@@ -6,12 +6,16 @@
 -->
 <html>
 	<head>
-		<title>Projection by TEMPLATED</title>
+		<title>FabCab</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<link rel="shortcut icon" href="images/favicon.ico">
-
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">	
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+		<link rel="stylesheet" href="DatePickerX-master/dist/css/DatePickerX.css">
+		
 	</head>
 	<body>
 
@@ -20,9 +24,9 @@
 				<div class="inner">
 					<a href="index.html" class="logo"><strong>FabCab</strong> </a>
 					<nav id="nav">
-						<a href="index.html">Home</a>
-						<a href="generic.html">Generic</a>
-						<a href="elements.html">Elements</a>
+						<a href="index.html">Find a Ride</a>
+						<a href="generic.html">Offer a Ride</a>
+						<a href="elements.html">Login</a>
 					</nav>
 					<a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
 				</div>
@@ -30,70 +34,82 @@
 
 		<!-- Banner -->
 			<section id="banner">
-				<div class="inner">
-					<header>
-						<h1>Lets share a ride</h1>
-					</header>
+				<div class= "container-fluid">
+					<div class="inner">
+						<div class="row">
+							<div class= "col-md-8" >
+								<h1>Lets ride together!</h1>
+								<h2 style="color:gold">One stop travel solution for car-owners and passengers.</h2>	
+							</div>
+							<div class="col-md-4" >
+									<form method="post" action="#">
+											<div>	
+												<div>
+												<input type="text" name="source" id="source" value="" placeholder="Leaving from" />
+												</div>
 
-					<div class="flex ">
+												<div>
+														<input type="text" name="dest" id="dest" value="" placeholder="Going To" />
+												</div>
+												<div>
+														<input type="text" name="demo" placeholder="Date">
 
-						<div>
-							<span class="icon fa-car"></span>
-							<h3>Aliquam</h3>
-							<p>Suspendisse amet ullamco</p>
+											</div>
+											<div>
+												<input type="submit"  name="Submit" id="submit" value="Lets Go!"/>
+										</div>
+											</div>
+										</form>
+
+
+								<!-- <div>
+									<span class="icon fa-car"></span>
+									<h3>Aliquam</h3>
+									<p>Suspendisse amet ullamco</p>
+								</div>
+
+								<div>
+									<span class="icon fa-camera"></span>
+									<h3>Elementum</h3>
+									<p>Class aptent taciti ad litora</p>
+								</div>
+
+								<div>
+									<span class="icon fa-bug"></span>
+									<h3>Ultrices</h3>
+									<p>Nulla vitae mauris non felis</p>
+								</div> -->
+
+							</div>
 						</div>
-
-						<div>
-							<span class="icon fa-camera"></span>
-							<h3>Elementum</h3>
-							<p>Class aptent taciti ad litora</p>
-						</div>
-
-						<div>
-							<span class="icon fa-bug"></span>
-							<h3>Ultrices</h3>
-							<p>Nulla vitae mauris non felis</p>
-						</div>
-
 					</div>
-
-					<footer>
-						<a href="#" class="button">Get Started</a>
-					</footer>
-				</div>
-			</section>
+					</div>
+				</section>
 
 
-		<!-- Three -->
+			<!-- Three -->
 			<section id="three" class="wrapper align-center">
-				<div class="inner">
-					<div class="flex flex-2">
-						<article>
-							<div class="image round">
-								<img src="images/pic01.jpg" alt="Pic 01" />
+					<div class="inner" >
+						<div class="flex flex-2 " >
+							<div class="row" style="position:relative;">
+							<div class="col-md-6">
+									<div class="image" >
+										<img src="images/offerride.jpg" alt="Pic 02" style= "width: 40em; position: relative; top: 8em; "/>
+									</div>
 							</div>
-							<header>
-								<h3>Lorem ipsum<br /> dolor amet nullam</h3>
-							</header>
-							<p>Morbi in sem quis dui placerat ornare. Pellentesquenisi<br />euismod in, pharetra a, ultricies in diam sed arcu. Cras<br />consequat  egestas augue vulputate.</p>
-							<footer>
-								<a href="#" class="button">Learn More</a>
-							</footer>
-						</article>
-						<article>
-							<div class="image round">
-								<img src="images/pic02.jpg" alt="Pic 02" />
+							
+							<div class="col-md-6" style="position: relative; top: 8em; left: 1em; height: 30em;">
+									<h1 style="color:gray; "> Have an empty seat? </h1>
+							</br>
+									<h3> Don't just travel, have a Win-Win journey. Save Time & Money.</h3>
+						</br>
+									<footer>
+											<a href="offerr-ride.html" class="button ">Offer Ride </a>
+									</footer>
 							</div>
-							<header>
-								<h3>Sed feugiat<br /> tempus adipicsing</h3>
-							</header>
-							<p>Pellentesque fermentum dolor. Aliquam quam lectus<br />facilisis auctor, ultrices ut, elementum vulputate, nunc<br /> blandit ellenste egestagus commodo.</p>
-							<footer>
-								<a href="#" class="button">Learn More</a>
-							</footer>
-						</article>
+							</div>
+						</div>
 					</div>
-				</div>
 			</section>
 
 		<!-- Footer -->
@@ -133,6 +149,7 @@
 			<script src="assets/js/skel.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script src="DatePickerX-master/src/js/DatePickerX.js"></script>
 
 	</body>
 </html>
