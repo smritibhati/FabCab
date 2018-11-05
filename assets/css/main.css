@@ -1779,7 +1779,7 @@
 	}
 
 	.inner {
-		max-width: 75em;
+		max-width: 85em;
 		margin: 0 auto;
 	}
 
@@ -2259,6 +2259,13 @@
 			padding: 0 1.5em 1em 0;
 			top: 0.25em;
 		}
+		.image.offer {
+			float: left;
+			padding: 1em 1.5em 1.5em 1.5em;
+			top: 3 em;
+			max-width: 40%!important;
+			max-height: 40%;
+		}
 
 		.image.right {
 			float: right;
@@ -2732,7 +2739,7 @@
 		cursor: default;
 		height: 6em;
 		left: 0;
-		line-height: 3.25em;
+		line-height: 2.25em;
 		position: absolute;
 		text-align: right;
 		top: 0;
@@ -2975,7 +2982,7 @@
 		}
 
 		#banner .inner {
-			border-top: 2px solid rgba(255, 255, 255, 0.2);
+			/* border-top: 2px solid rgba(255, 255, 255, 0.2); */
 			position: relative;
 			z-index: 10005;
 			padding-top: 8em;
