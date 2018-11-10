@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Account</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="shortcut icon" href="images/favicon.ico">
+  	
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <link rel="stylesheet" href="DatePickerX-master/dist/css/DatePickerX.css">
+</head>
+<body>
+	<header id="header">
+    <div class="inner">
+      <a href="index.html" class="logo"><strong>FabCab</strong> </a>
+      
+      <nav id="nav">
+        <a href="#">
+        <div class="dropdown">
+              <div class="dropbtn">Smriti</div>
+              <div class="dropdown-content">
+                <a href="#">Profile</a>
+                <a href="bookings.html">Bookings</a>
+                <a href="offeredrides.html">Offered Rides</a>
+                <a href="changepassword.html">Change Password</a>
+                <hr>
+                <a href="index.html">Sign out</a>
+              </div>
+            </div>
+          </a>
+        <a href="index.html">Find a Ride</a>
+        <a href="generic.html">Offer a Ride</a>
+        <a href= "#"> <span class="glyphicon glyphicon-bell" aria-hidden="true"></span></a>
+      </nav>
+      <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+    </div>
+  </header>
+<div class="container">
+  <section id="banner2">
+      <div class="row" style="height:25%;">
+          <div class="col-md-4">
+            <img src="images/profile.png" style= "height:20em ;width:15em"/>
+          </div>
+          <div class="col-md-8" style="text-align:left">
+              <h2> Smriti Bhati </h2>
+              <button type="button" class="btn btn-success" style="color: white!important;">Subscribe</button>
+          </div>
+        </div>
+    <ul class="nav nav-tabs " style="font-size: 1.25em;
+    font-weight: 700;">
+      <li class="active"><a href="#profile">Profile</a></li>
+      <li><a href="#vehicledetails">Vehicle Details</a></li>
+    </ul>
+
+    <div class="tab-content">
+      <div id="profile" class="tab-pane fade in active">
+     
+            <div class = "col-md-6">
+            <form method="post" action="#">	
+                <table style="text-align:left">
+                        <tr>
+                        <td> <label for="name" style="">Name </label></td>
+                        <td> blank</td>                        </tr>
+                        <tr>
+                            <td> <label for="email">Email </label></td>
+                            <td> blank</td>
+                        </tr>
+                            
+                        <tr>
+                                <td> <label for="gender">Gender </label></td>
+                                <td> blank</td>                        </tr>
+                        <tr>
+                                <td> <label for="phone">Phone </label></td>
+                                <td> blank</td>                        </tr>
+                           
+                        <tr>
+                                <td> <label for="dob">Birth </label></td>
+                                <td> blank</td>                        
+                        </tr>
+            </table>
+        </form>
+    </div>
+    </div>
+      <div id="vehicledetails" class="tab-pane fade">
+        <h3>Menu 1</h3>
+        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      </div>
+     
+    </div>
+  </section>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script>
+$(document).ready(function(){
+    $(".nav-tabs a").click(function(){
+        $(this).tab('show');
+    });
+});
+</script>
+
+</body>
+</html>
