@@ -2193,7 +2193,7 @@
 		color: gray;
 	}
 	::-webkit-input-placeholder {
-		color: white !important;
+		color: gray !important;
 		opacity: 1.0;
 	}
 

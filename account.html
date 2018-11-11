@@ -8,7 +8,6 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/css/main.css" />
   <link rel="shortcut icon" href="images/favicon.ico">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   	
   <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
   <link rel="stylesheet" href="DatePickerX-master/dist/css/DatePickerX.css">
@@ -21,7 +20,7 @@
       <nav id="nav">
         <a href="#">
         <div class="dropdown">
-              <div class="dropbtn"> <i class="fa fa-user-circle" aria-hidden="true"></i> Smriti</div>
+              <div class="dropbtn">Smriti</div>
               <div class="dropdown-content">
                 <a href="#">Profile</a>
                 <a href="bookings.html">Bookings</a>
@@ -32,10 +31,10 @@
               </div>
             </div>
           </a>
-        <a href="index.html">  <i class="fa fa-car" aria-hidden="true"></i> Find a Ride</a>
-        <a href="generic.html"> <i class="fa fa-plus-square" aria-hidden="true"></i>
-          Offer a Ride</a>
-        <span class="glyphicon glyphicon-bell" style="font-family: 'Glyphicons Halflings'!important;"></span>
+          <a href="index.html">  <i class="fa fa-car" aria-hidden="true"></i> Find a Ride</a>
+          <a href="generic.html"> <i class="fa fa-plus-square" aria-hidden="true"></i>
+              Offer a Ride</a>
+        <a href= "#"> <span class="glyphicon glyphicon-bell" aria-hidden="true"></span></a>
       </nav>
       <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
     </div>
@@ -61,6 +60,7 @@
       <div id="profile" class="tab-pane fade in active">
      
             <div class = "col-md-6">
+            <form method="post" action="#">	
                 <table style="text-align:left">
                         <tr>
                         <td> <label for="name" style="">Name </label></td>
@@ -82,11 +82,11 @@
                                 <td> blank</td>                        
                         </tr>
             </table>
-
-            </div>
+        </form>
+    </div>
     </div>
       <div id="vehicledetails" class="tab-pane fade">
-        <div class="col-md-6">
+          <div class = "col-md-6"> 
         <table style="text-align:left">
           <tr>
           <td> <label for="name" style="">Model </label></td>
@@ -94,10 +94,11 @@
           <tr>
               <td> <label for="email">Registration No. </label></td>
               <td> blank</td>
-          </tr>
-        </table>
-      </div>
+          </tr> 
+      </table>
     </div>
+      </div>
+     
     </div>
   </section>
 </div>
@@ -105,13 +106,13 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<!-- <script>
+<script>
 $(document).ready(function(){
     $(".nav-tabs a").click(function(){
         $(this).tab('show');
     });
 });
-</script> -->
+</script>
 
 </body>
 </html>
