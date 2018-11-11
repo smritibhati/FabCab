@@ -1,61 +1,71 @@
-	<head>
-		<title>FabCab</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<link rel="shortcut icon" href="images/favicon.ico">
-		<!-- Latest compiled and minified CSS -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">	
-		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-		<link rel="stylesheet" href="DatePickerX-master/dist/css/DatePickerX.css">
-		
-	</head>
-	<body>
+<head>
+    <title>FabCab</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="DatePickerX-master/dist/css/DatePickerX.css">
 
-		<!-- Header -->
-			<header id="header">
-				<div class="inner">
-					<a href="index.html" class="logo"><strong>FabCab</strong> </a>
-					<nav id="nav">
-						<a href="index.html">Find a Ride</a>
-						<a href="generic.html">Offer a Ride</a>
-						<a href="app/components/Login/login.html">Login</a>
-					</nav>
-					<a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
-				</div>
-			</header>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8-biRTegRnn5jDJNoPbyZ9oWUicObzI0&libraries=places"></script>
 
-		<!-- Banner -->
-			<section id="banner">
-				<div class= "container-fluid">
-					<div class="inner">
-						<div class="row">
-							<div class= "col-md-8" >
-								<h1>Lets ride together!</h1>
-								<h2 style="color:gold">One stop travel solution for car-owners and passengers.</h2>	
-							</div>
-							<div class="col-md-4" >
-									<form method="post" action="#">
-											<div>	
-												<div>
-												<input type="text" name="source" id="source" value="" placeholder="Leaving from" />
-												</div>
+</head>
 
-												<div>
-														<input type="text" name="dest" id="dest" value="" placeholder="Going To" />
-												</div>
-												<div>
-														<input type="text" name="demo" placeholder="Date">
+<body>
 
-											</div>
-											<div>
-												<input type="submit"  name="Submit" id="submit" value="Lets Go!"/>
-										</div>
-											</div>
-										</form>
+    <!-- Header -->
+    <header id="header">
+        <div class="inner">
+            <a href="index.html" class="logo"><strong>FabCab</strong> </a>
+            <nav id="nav">
+                <a href="index.html">Find a Ride</a>
+                <a href="generic.html">Offer a Ride</a>
+                <a href="app/components/Login/login.html">Login</a>
+            </nav>
+            <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+        </div>
+    </header>
+
+    <!-- Banner -->
+    <section id="banner">
+        <div class="container-fluid">
+            <div class="inner">
+                <div class="row">
+                    <div class="col-md-8">
+                        <h1>Lets ride together!</h1>
+                        <h2 style="color:gold">One stop travel solution for car-owners and passengers.</h2>
+                    </div>
+                    <div class="col-md-4">
+                        <form method="post" action="#">
+                            <div>
+                                <div>
+                                    <input type="text" name="source" id="source" value="" placeholder="Leaving from" />
+                                </div>
+
+                                <div>
+                                    <input type="text" name="dest" id="dest" value="" placeholder="Going To" />
+                                </div>
+                                <div>
+                                    <input type="text" style="display: inline!important; width: 50%!important;" name="demo" placeholder="Chose a Date">
+                                    <select id="hour" style="color: white; width:15%; display: inline!important;">
+                                        <option style="color: black;" value="">HH</option>
+                                    </select>
+                                    <span style="color: white;">:</span>
+                                    <select id="minute" style="color: white; width:15%; display: inline!important;">
+                                        <option style="color: black;" value="">MM</option>
+                                    </select>
+
+                                </div>
+                                <div>
+                                    <input type="submit" name="Submit" id="submit" value="Lets Go!" />
+                                </div>
+                            </div>
+                        </form>
 
 
-								<!-- <div>
+                        <!-- <div>
 									<span class="icon fa-car"></span>
 									<h3>Aliquam</h3>
 									<p>Suspendisse amet ullamco</p>
@@ -73,76 +83,77 @@
 									<p>Nulla vitae mauris non felis</p>
 								</div> -->
 
-							</div>
-						</div>
-					</div>
-					</div>
-				</section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
 
-			<!-- Three -->
-			<section id="three" class="wrapper align-center">
-					<div class="inner" >
-						<div class="flex flex-2 " >
-							<div class="row" style="position:relative;">
-							<div class="col-md-6">
-									<div class="image" >
-										<img src="images/offerride.jpg" alt="Pic 02" style= "width: 40em; position: relative; top: 8em; "/>
-									</div>
-							</div>
-							
-							<div class="col-md-6" style="position: relative; top: 8em; left: 1em; height: 30em;">
-									<h1 style="color:gray; "> Have an empty seat? </h1>
-							</br>
-									<h3> Don't just travel, have a Win-Win journey. Save Time & Money.</h3>
-						</br>
-									<footer>
-											<a href="offerr-ride.html" class="button ">Offer Ride </a>
-									</footer>
-							</div>
-							</div>
-						</div>
-					</div>
-			</section>
+    <!-- Three -->
+    <section id="three" class="wrapper align-center">
+        <div class="inner">
+            <div class="flex flex-2 ">
+                <div class="row" style="position:relative;">
+                    <div class="col-md-6">
+                        <div class="image">
+                            <img src="images/offerride.jpg" alt="Pic 02" style="width: 40em; position: relative; top: 8em; " />
+                        </div>
+                    </div>
 
-		<!-- Footer -->
-			<footer id="footer">
-				<div class="inner">
+                    <div class="col-md-6" style="position: relative; top: 8em; left: 1em; height: 30em;">
+                        <h1 style="color:gray; "> Have an empty seat? </h1>
+                        <br />
+                        <h3> Don't just travel, have a Win-Win journey. Save Time & Money.</h3>
+                        <br />
+                        <footer>
+                            <a href="offerr-ride.html" class="button ">Offer Ride </a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-					<h3>Get in touch</h3>
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="inner">
 
-					<form action="#" method="post">
+            <h3>Get in touch</h3>
 
-						<div class="field half first">
-							<label for="name">Name</label>
-							<input name="name" id="name" type="text" placeholder="Name">
-						</div>
-						<div class="field half">
-							<label for="email">Email</label>
-							<input name="email" id="email" type="email" placeholder="Email">
-						</div>
-						<div class="field">
-							<label for="message">Message</label>
-							<textarea name="message" id="message" rows="6" placeholder="Message"></textarea>
-						</div>
-						<ul class="actions">
-							<li><input value="Send Message" class="button alt" type="submit"></li>
-						</ul>
-					</form>
+            <form action="#" method="post">
 
-					<div class="copyright">
-						&copy; Untitled. Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a href="https://unsplash.com">Unsplash</a>.
-					</div>
+                <div class="field half first">
+                    <label for="name">Name</label>
+                    <input name="name" id="name" type="text" placeholder="Name">
+                </div>
+                <div class="field half">
+                    <label for="email">Email</label>
+                    <input name="email" id="email" type="email" placeholder="Email">
+                </div>
+                <div class="field">
+                    <label for="message">Message</label>
+                    <textarea name="message" id="message" rows="6" placeholder="Message"></textarea>
+                </div>
+                <ul class="actions">
+                    <li><input value="Send Message" class="button alt" type="submit"></li>
+                </ul>
+            </form>
 
-				</div>
-			</footer>
+            <div class="copyright">
+                &copy; Untitled. Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a href="https://unsplash.com">Unsplash</a>.
+            </div>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-			<script src="DatePickerX-master/src/js/DatePickerX.js"></script>
+        </div>
+    </footer>
 
-	</body>
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/skel.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="DatePickerX-master/src/js/DatePickerX.js"></script>
+
+</body>
+
 </html>
