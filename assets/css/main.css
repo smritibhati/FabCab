@@ -2,32 +2,80 @@
 @import url(font-awesome.min.css);
 @import "https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600";
 
-/*
-	Projection by TEMPLATED
-	templated.co @templatedco
-	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
-*/
-
-/* Reset */
-/* .ola-booking {
-    position: absolute;
-    width: 400px;
-    border-radius: 4px;
-    z-index: 10;
-    left: 0;
-    margin-top: 160px;
+#gicon{
+	font-family: 'Glyphicons Halflings'!important;
 }
-@media only screen and (max-width: 768px)
-.ola-booking {
-    width: 100%;
-    border-radius: 0;
-    top: 50px;
-    margin-top: 0;
-    margin: auto;
-	background: #f5f5f5;
-} */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+.dropdown-content {
+    display: none;
+	position: absolute;
+	padding-left: 1em;
 
-	html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, output, ruby, section, summary, time, mark, audio, video {
+	background-color: #f1f1f1;
+	width: 15em;
+	text-align: left;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+	padding: 0!important;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block!important;
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.tab-content > .tab-pane,
+.pill-content > .pill-pane {
+  display: none;
+}
+.tab-content > .active,
+.pill-content > .active {
+  display: block;
+}
+
+.tabs-left > .nav-tabs > li {
+  float: none;
+}
+
+.tabs-left > .nav-tabs > li > a {
+  min-width: 74px;
+  margin-right: 0;
+  margin-bottom: 3px;
+}
+
+.tabs-left > .nav-tabs {
+  float: left;
+  margin-right: 19px;
+  border-right: 1px solid #ddd;
+}
+.tabs-left > .nav-tabs > li > a {
+	margin-right: -1px;
+	-webkit-border-radius: 4px 0 0 4px;
+	   -moz-border-radius: 4px 0 0 4px;
+			border-radius: 4px 0 0 4px;
+  }
+  
+  .tabs-left > .nav-tabs > li > a:hover,
+  .tabs-left > .nav-tabs > li > a:focus {
+	border-color: #eeeeee #dddddd #eeeeee #eeeeee;
+  }
+  
+  .tabs-left > .nav-tabs .active > a,
+  .tabs-left > .nav-tabs .active > a:hover,
+  .tabs-left > .nav-tabs .active > a:focus {
+	border-color: #ddd transparent #ddd #ddd;
+	*border-right-color: #ffffff;
+  }
+	html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, output, ruby, section, summary, time, mark, audio, video {
 		font-family: 'Open Sans', sans-serif !important;
 		margin: 0;
 		padding: 0;
@@ -1651,8 +1699,7 @@
 		}
 
 	a {
-		color: #6cc091;
-		text-decoration: underline;
+		
 	}
 
 		a:hover {
@@ -1759,7 +1806,7 @@
 	hr {
 		border: 0;
 		border-bottom: solid 1px #dbdbdb;
-		margin: 2em 0;
+		margin: .5em 0;
 	}
 
 		hr.major {
@@ -1977,7 +2024,7 @@
 	label {
 		color: #555;
 		display: block;
-		font-size: 0.9em;
+		font-size: 1.25em;
 		font-weight: 600;
 		margin: 0 0 1em 0;
 	}
@@ -2146,9 +2193,7 @@
 		color: gray;
 	}
 	::-webkit-input-placeholder {
-		color: white;
-		
-		!important;
+		color: white !important;
 		opacity: 1.0;
 	}
 
@@ -2480,29 +2525,28 @@
 	}
 
 	table {
+		position: relative;
+		top: 2em;
 		margin: 0 0 2em 0;
 		width: 100%;
 	}
 
 		table tbody tr {
-			border: solid 1px #dbdbdb;
+		
 			border-left: 0;
 			border-right: 0;
 		}
 
-			table tbody tr:nth-child(2n + 1) {
-				background-color: rgba(144, 144, 144, 0.075);
-			}
-
 		table td {
-			padding: 0.75em 0.75em;
+			padding: .25em;
+			
 		}
 
 		table th {
-			color: #555;
+			color: white;
 			font-size: 0.9em;
 			font-weight: 600;
-			padding: 0 0.75em 0.75em 0.75em;
+			
 			text-align: left;
 		}
 
@@ -2971,6 +3015,17 @@
 	top: 6em;
 }
 
+#banner3{
+	padding: 8em 0 9em 0;
+	background-size: cover;
+	background-position: bottom;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	position: relative;
+	height: 100%;
+	top: 6em;
+}
+
 
 	#banner {
 		padding: 8em 0 9em 0;
@@ -3328,3 +3383,6 @@
 			opacity: 0.5;
 		  }
 		  
+		  #block-span{
+			  display: block!important;
+		  }
