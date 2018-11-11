@@ -2030,6 +2030,7 @@
 	}
 
 	input[type="text"],
+	input[type="number"],
 	input[type="password"],
 	input[type="email"],
 	input[type="tel"],
@@ -2043,7 +2044,7 @@
 		border-radius: 10px;
 		border: none;
 		border: solid 2px gray;
-		color:white;
+		color:black;
 		display: block;
 		outline: 0;
 		padding: 0 1em;
@@ -2105,6 +2106,7 @@
 		}
 
 	input[type="text"],
+	input[type="number"],
 	input[type="password"],
 	input[type="email"],
 	select {
@@ -2797,7 +2799,7 @@
 			margin: 0 auto;
 			position: relative;
 			top: 2em;
-			width: 100%;
+			width: 90%;
 		}
 		#nav{
 			position: relative;
@@ -3386,3 +3388,7 @@
 		  #block-span{
 			  display: block!important;
 		  }
+
+.pac-container{
+	z-index: 99999!important;
+}

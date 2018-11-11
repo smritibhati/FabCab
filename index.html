@@ -21,7 +21,7 @@
             <a href="index.html" class="logo"><strong>FabCab</strong> </a>
             <nav id="nav">
                 <a href="index.html">Find a Ride</a>
-                <a href="generic.html">Offer a Ride</a>
+                <a href="offerr-ride.html">Offer a Ride</a>
                 <a href="app/components/Login/login.html">Login</a>
             </nav>
             <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
@@ -41,21 +41,25 @@
                         <form method="post" action="#">
                             <div>
                                 <div>
-                                    <input type="text" name="source" id="source" value="" placeholder="Leaving from" />
+                                    <input type="text" name="source"  style="color: white;" id="source" value="" placeholder="Leaving from" />
                                 </div>
 
                                 <div>
-                                    <input type="text" name="dest" id="dest" value="" placeholder="Going To" />
+                                    <input type="text" name="dest"  style="color: white;" id="dest" value="" placeholder="Going To" />
                                 </div>
                                 <div>
-                                    <input type="text" style="display: inline!important; width: 50%!important;" name="demo" placeholder="Chose a Date">
+                                    <input type="text" style="display: inline!important; width: 40%!important; color: white" name="demo" placeholder="Date">
                                     <select id="hour" style="color: white; width:15%; display: inline!important;">
                                         <option style="color: black;" value="">HH</option>
                                     </select>
                                     <span style="color: white;">:</span>
                                     <select id="minute" style="color: white; width:15%; display: inline!important;">
                                         <option style="color: black;" value="">MM</option>
-                                    </select>
+									</select>
+									<select id="ampm" style="color: white; width:15%; display: inline!important;">
+											<option style="color: black;" value="">AM</option>
+											<option style="color: black;" value="">PM</option>
+										</select>
 
                                 </div>
                                 <div>
