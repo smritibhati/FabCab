@@ -21,9 +21,6 @@
         <div class="inner">
             <a href="../../../index.html" class="logo"><strong>FabCab</strong> </a>
             <nav id="nav">
-                <a href="../../../index.html"> <i class="fa fa-car" aria-hidden="true"></i> Find a Ride</a>
-                <a href="../../../offerr-ride.html"> <i class="fa fa-plus-square" aria-hidden="true"></i> Offer a Ride</a>
-                <a href="login.html">Login</a>
             </nav>
             <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
         </div>
@@ -34,33 +31,34 @@
         <div class="container-fluid">
             <div class="inner">
                 <header>
-                    <h2>Log In</h2>
+                    <h2>Booking Confirmed <i class="fa fa-check-circle" aria-hidden="true" style="color:gold"></i> </h2>
+                    <h4>Ride Details</h4>
                 </header>
                 <br />
                 <div class="row">
-                    <div class="col-md-6" style="position: relative; left: 25%;">
+                    <div class="col-md-6" style="position: relative; left: 25%; width:50%;">
 
-                        <form method="post" action="#">
-
-                            <div>
-                                <input type="email" name="user-mail" id="user-mail" placeholder="Email" required/>
-                            </div>
-                            <div>
-                                <input type="password" name="user-pass" id="user-pass" data-toggle="tooltip"
-                                title="Must Contain minimum 8 characters, 1 lowercase, 1 uppercase, 1 special character." 
-                                pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,20}$" placeholder="Password" required/>
-                            </div>
-                            <div>
-                                <span style="align-content: left!important; "><a href="../../../forgotPassword.html">Forgot Password?</a></span>
-                            </div>
-                            <div>
-                                <span style="align-content: left!important; ">Not a member yet?<a href="signup.html">Sign Up</a></span>
-                            </div>
-                            <div>
-                                <input type="submit" name="Submit" id="submit" value="Sign In" />
-                            </div>
-
-                        </form>
+                            <table style="text-align:left">
+                                    <tr>
+                                    <td> <label for="name" style="">Name </label></td>
+                                    <td> blank</td>                        </tr>
+                                    <tr>
+                                        <td> <label for="email">Email </label></td>
+                                        <td> blank</td>
+                                    </tr>
+                                        
+                                    <tr>
+                                            <td> <label for="gender">Gender </label></td>
+                                            <td> blank</td>                        </tr>
+                                    <tr>
+                                            <td> <label for="phone">Phone </label></td>
+                                            <td> blank</td>                        </tr>
+                                       
+                                    <tr>
+                                            <td> <label for="dob">Birth </label></td>
+                                            <td> blank</td>                        
+                                    </tr>
+                        </table>
                     </div>
 
                 </div>
