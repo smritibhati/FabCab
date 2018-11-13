@@ -1,6 +1,9 @@
 "use strict";
 
 function register(){
+  if(check_pass() == false){
+    return false;
+  }
   var emailField = document.getElementById("user-mail");
   var email = emailField.value;
   var nameField = document.getElementById("user-name");
@@ -27,5 +30,18 @@ function register(){
     }
   });
 
-  registerData.error(function(){alert("Something went wrong");})
+  //registerData.error(function(){alert("Something went wrong");})
+}
+
+$(document).ready(function(){
+  $('[data-toggle="tooltip"]').tooltip();   
+});
+
+function check_pass() {
+  if (document.getElementById('user_pass').value == document.getElementById('confirm_pass').value) {
+    return true;
+  }else{
+    alert("The Passwords Do Not Match");
+    return false;
   }
+}

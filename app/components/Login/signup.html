@@ -40,29 +40,30 @@
                 <div class="row">
                     <div class="col-md-6" style="position: relative; left: 25%;">
 
-                        <!-- <form method="post"> -->
+                        <form >
 
                             <div>
-                                <input type="email" name="user-mail" id="user-mail" placeholder="Email" />
+                                <input type="email" name="user-mail" id="user-mail" placeholder="Email" required/>
                             </div>
 
                             <div>
-                                <input type="text" name="user-name" id="user-name" placeholder="Name" />
+                                <input type="text" name="user-name" id="user-name" placeholder="Name" required/>
                             </div>
                             <div>
-                                <input type="text" name="user-mob" id="user-mob" placeholder="Mobile">
+                                <input type="text" name="user-mob" id="user-mob" pattern="[6789][0-9]{9}" title="Enter A Valid Mobile Number" placeholder="Mobile" required/>
                             </div>
                             <div>
-                                <input type="password" name="user-pass" id="user-pass" placeholder="Password">
+                                <input type="password" name="user-pass" id="user_pass" title="Must Contain minimum 8 characters, 1 lowercase, 1 uppercase, 1 special character." 
+                                pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,20}$" placeholder="Password" required/>
                             </div>
                             <div>
-                                <input type="password" name="user-pass" id="user-pass" placeholder="Confirm Password">
+                                <input type="password" name="confirm-pass" id="confirm_pass" title="The Passwords Must Be Same" placeholder="Confirm Password" required>
                             </div>
                             <div>
-                                <input type="submit" name="Submit" id="submit" value="Sign Up" onclick="register()"/>
+                                <input type="submit" name="Submit" id="submit" value="Sign Up" onclick="register()" />
                             </div>
 
-                        <!-- </form> -->
+                        </form>
                     </div>
 
                 </div>
