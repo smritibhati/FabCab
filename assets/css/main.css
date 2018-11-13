@@ -2534,22 +2534,25 @@
 	}
 
 		table tbody tr {
-		
+			position: relative;
+			top: .5em;
+			font-size: 1.25em!important;
 			border-left: 0;
 			border-right: 0;
 		}
 
 		table td {
+			font-size: 1em!important;
 			padding: .25em;
 			
 		}
 
 		table th {
-			color: white;
-			font-size: 0.9em;
+			color: grey;
+			font-size: 1.5em;
 			font-weight: 600;
-			
-			text-align: left;
+			background-color: gold;
+			text-align: center;
 		}
 
 		table thead {

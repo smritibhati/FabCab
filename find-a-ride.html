@@ -45,20 +45,15 @@
 							<div class="col-md-3">
 								<input type="text" name="dest"  style="color: black; background-color:white;" id="dest" value="" placeholder="Going To" />
 							</div>
-							<div class="col-md-4" style="color:black!important ">
-							
-                                    <input type="text" style="display: inline!important; width: 40%!important; background-color:white;color: black" name="demo" placeholder="Date">
-                                    <select id="hour" style="color: black; width:15%; display: inline!important; background-color:white;">
+							<div class="col-md-3" style="color:black!important ">
+                                    <input type="text" style="display: inline!important; width: 50%!important; background-color:white;color: black; float: left;" name="demo" placeholder="Date">
+                                    <select id="hour" style="color: black; width:20%; display: inline!important; background-color:white; position: relative; top:0.75em;">
                                         <option style="color: black;" value="">HH</option>
-                                    </select>
-                        
-									<select id="ampm" style="color: black; width:15%; display: inline!important; background-color:white;">
-											<option style="color: black;" value="">AM</option>
-											<option style="color: black;" value="">PM</option>
-										</select>
-
-                        
+									</select>
 							</div>
+							<div class="col-md-1">
+									<input type="number" style="display: inline!important; width: 130%!important; background-color:white;color: black ; position: relative; left:-2em;" name="demo" placeholder="Seats">
+								</div>		
 							<div class="col-md-2">
 								<button>Search </button>
 							</div>
@@ -66,9 +61,52 @@
                           </form>
                         </header>
 						<div class="row">
-                            <div class="col-md-6" style="position: relative; left: 25%;">
-                                    </div>
-
+                          <table class= "table table-striped" > 
+							<thead style="color: black!important">
+									<th> Source </th>
+									<th> Destination </th>
+									<th> Driver </th>
+									<th> Price </th>
+									<th>  </th>
+							</thead>  
+							<tbody> 
+									<tr>
+											<td>
+												Gachibowli
+											</td>
+											<td>
+													Gachibowli
+											</td>
+											<td>
+														Imran Khan
+											</td>
+											<td>
+													400
+											</td>
+											<td>
+													<button class = "btn btn-default" style="width: 40%; color: black; background-color: gold;" > BOOK </button>
+											</td>
+										</tr>
+										<tr>
+												<td>
+													Gachibowli
+												</td>
+												<td>
+														Gachibowli
+												</td>
+												<td>
+															Imran Khan
+												</td>
+												<td>
+														400
+												</td>
+												<td>
+														<button class = "btn btn-default" style="width: 40%; color: black; background-color: gold;" > BOOK </button>
+													</td>
+											</tr>
+							</tbody>
+							
+						  </table>
 
 								<!-- <div>
 									<span class="icon fa-car"></span>
