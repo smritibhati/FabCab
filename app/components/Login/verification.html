@@ -19,7 +19,7 @@
     <!-- Header -->
     <header id="header">
         <div class="inner">
-            <a href="../../../index.html" class="logo"><strong>FabCab</strong> </a>
+            <a href="index.html" class="logo"><strong>FabCab</strong> </a>
             <nav id="nav">
             </nav>
             <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
@@ -38,17 +38,13 @@
                 <div class="row">
                     <div class="col-md-6" style="position: relative; left: 36.5%; width:25%;">
 
-                        <form method="post" action="#">
+                        <div>
+                            <input type="text" name="user-mail" id="otp" placeholder="Verification code" />
+                        </div>
 
-                            <div>
-                                <input type="email" name="user-mail" id="user-mail" placeholder="Verification code" />
-                            </div>
-                        
-                            <div>
-                                <input type="submit" name="Submit" id="submit" value="Verify" />
-                            </div>
-
-                        </form>
+                        <div>
+                            <input type="submit" name="Submit" id="submit" value="Verify" onclick="verify()" />
+                        </div>
                     </div>
 
                 </div>
@@ -61,10 +57,10 @@
 
 
     <!-- Scripts -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/skel.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script src="../../../assets/js/jquery.min.js"></script>
+    <script src="../../../assets/js/skel.min.js"></script>
+    <script src="../../../assets/js/util.js"></script>
+    <script src="login.js"></script>
     <script src="DatePickerX-master/src/js/DatePickerX.js"></script>
 
 </body>
