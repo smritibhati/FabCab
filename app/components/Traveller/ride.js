@@ -57,3 +57,7 @@ function postRequest(postUrl, userData, nextPageUrl) {
 
     response.error(function() {})
 }
+function getofferedrides() {
+    postRequest("http://127.0.0.1:5000/offered", {}, "");
+}
+
