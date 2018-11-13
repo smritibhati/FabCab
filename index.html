@@ -20,7 +20,7 @@
         <div class="inner">
             <a href="index.html" class="logo"><strong>FabCab</strong> </a>
             <nav id="nav">
-                <a href="index.html">Find a Ride</a>
+                <a href="find-a-ride.html">Find a Ride</a>
                 <a href="offerr-ride.html">Offer a Ride</a>
                 <a href="app/components/Login/login.html">Login</a>
             </nav>
@@ -38,7 +38,7 @@
                         <h2 style="color:gold">One stop travel solution for car-owners and passengers.</h2>
                     </div>
                     <div class="col-md-4">
-                        <form method="post" action="#">
+                        <form method="post">
                             <div>
                                 <div>
                                     <input type="text" name="source"  style="color: white;" id="source" value="" placeholder="Leaving from" />
@@ -63,7 +63,7 @@
 
                                 </div>
                                 <div>
-                                    <input type="submit" name="Submit" id="submit" value="Lets Go!" />
+                                    <a href="letsgo.html"><input type="submit" name="Submit" id="submit" value="Lets Go!" /></a>
                                 </div>
                             </div>
                         </form>
@@ -123,27 +123,33 @@
     <footer id="footer">
         <div class="inner">
 
-            <h3>Get in touch</h3>
+            <h2>You are three steps away from experiencing an unforgettable Travel Experience.</h2>
 
-            <form action="#" method="post">
+            <div class="row" style="top:5em; position:relative;" id="threesteps">
+                <div class="col-md-4" style="background-color: ; border-radius: 5px; height: 20em">
+                        <i class="fa fa-user-plus fa-5x" aria-hidden="true" style="color:grey;"></i>
+                        <h2>JOIN</h2>
+                        <h3>
+                                Quick, Simple & Free! Sign up to offer empty car seats or to book seats.
 
-                <div class="field half first">
-                    <label for="name">Name</label>
-                    <input name="name" id="name" type="text" placeholder="Name">
+                        </h3>
                 </div>
-                <div class="field half">
-                    <label for="email">Email</label>
-                    <input name="email" id="email" type="email" placeholder="Email">
+                <div class="col-md-4" style="background-color:; border-radius: 5px; height: 20em">
+                        <i class="fa fa fa-bullhorn fa-5x" aria-hidden="true"style="color:grey;" ></i>
+                        <h2>OFFER</h2>
+                        <h3>
+                                Search rides on your way and book seats. Post your ride to offer empty seats.
+                        </h3>
                 </div>
-                <div class="field">
-                    <label for="message">Message</label>
-                    <textarea name="message" id="message" rows="6" placeholder="Message"></textarea>
+                <div class="col-md-4" style="background-color; border-radius: 5px; height: 20em;">
+                        <i class="fa fa fa-taxi fa-5x" aria-hidden="true" style="color:grey;"></i>
+                        <h2>TRAVEL TOGETHER</h2>
+                        <h3>
+                                Don't just travel, have a Win-Win journey. Save Time & Money.
+                        </h3>
                 </div>
-                <ul class="actions">
-                    <li><input value="Send Message" class="button alt" type="submit"></li>
-                </ul>
-            </form>
 
+            </div>
             <div class="copyright">
                 &copy; Untitled. Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a href="https://unsplash.com">Unsplash</a>.
             </div>

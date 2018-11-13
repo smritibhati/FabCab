@@ -2806,6 +2806,7 @@
 			top: 50%;
 		}
 		#header .logo {
+			z-index: 9999;
 			color: gray;
 			display: inline-block;
 			font-weight: 400;
@@ -3227,7 +3228,7 @@
 
 	#footer {
 		padding: 6em 0;
-		background: #6cc091;
+		background: gold;
 		color: #fff;
 		text-align: center;
 	}
@@ -3391,4 +3392,7 @@
 
 .pac-container{
 	z-index: 99999!important;
+}
+#threesteps{
+	color:grey;
 }
