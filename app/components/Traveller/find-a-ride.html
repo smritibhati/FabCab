@@ -11,6 +11,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="../../../assets/css/main.css" />
 		<link rel="shortcut icon" href="../../../temp.js">
+		<link rel="shortcut icon" href="images/favicon.ico">
 		<!-- Latest compiled and minified CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">	
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
@@ -24,10 +25,10 @@
 				<div class="inner">
 					<a href="../../../index.html" class="logo"><strong>FabCab</strong> </a>
 					<nav id="nav">
-						<a href="#">  <i class="fa fa-car" aria-hidden="true"></i>  Find a Ride</a>
-						<a href="../Rider/offerr-ride.html"> <i class="fa fa-plus-square" aria-hidden="true"></i>
+						<a href="find-a-ride.html">  <i class="fa fa-car" aria-hidden="true"></i>  Find a Ride</a>
+						<a href="offerr-ride.html"> <i class="fa fa-plus-square" aria-hidden="true"></i>
 							Offer a Ride</a>
-						<a href="../../components/Login/login.html">Login</a>
+						<a href="../Login/login.html">Login</a>
 					</nav>
 					<a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
 				</div>
@@ -37,7 +38,8 @@
 			<section id="banner2">
 				<div class= "container-fluid">
 					<div class="inner">
-                        <header> <form>
+                        <header> 
+							<form>
                             <div class="row" style="background-color:lightgray ; border-radius: 5px; height:6em; padding: 15px;">
 								<div class="col-md-3">
                                     <input type="text" name="source"  style="color: black; background-color:white;" id="source" value="" placeholder="Leaving from" />
@@ -46,13 +48,13 @@
 								<input type="text" name="dest"  style="color: black; background-color:white;" id="dest" value="" placeholder="Going To" />
 							</div>
 							<div class="col-md-3" style="color:black!important ">
-                                    <input type="text" style="display: inline!important; width: 50%!important; background-color:white;color: black; float: left;" name="demo" placeholder="Date">
+                                    <input type="text" style="display: inline!important; width: 50%!important; background-color:white;color: black; float: left;" name="demo" placeholder="Date" id="date">
                                     <select id="hour" style="color: black; width:20%; display: inline!important; background-color:white; position: relative; top:0.75em;">
                                         <option style="color: black;" value="">HH</option>
 									</select>
 							</div>
 							<div class="col-md-1">
-									<input type="number" style="display: inline!important; width: 130%!important; background-color:white;color: black ; position: relative; left:-2em;" name="demo" placeholder="Seats">
+									<input type="number" style="display: inline!important; width: 130%!important; background-color:white;color: black ; position: relative; left:-2em;" name="demo" placeholder="Seats" id="seats">
 								</div>		
 							<div class="col-md-2">
 								<button>Search </button>
@@ -136,6 +138,8 @@
 			<script src="../../../assets/js/skel.min.js"></script>
 			<script src="../../../assets/js/util.js"></script>
 			<script src="../../../assets/js/main.js"></script>
+			<script src="ride.js"></script>
+			
 			<script src="../../../DatePickerX-master/src/js/DatePickerX.js"></script>
 
 	</body>
