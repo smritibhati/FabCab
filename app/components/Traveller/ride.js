@@ -16,9 +16,9 @@ function findaride() {
         "dest": dest,
         "date": date,
         "hour": hour,
-        "seats": seats        
+        "seats": seats
     };
-    postRequest("http://127.0.0.1:5000/find-a-ride", findride, "");
+    postRequest("http://127.0.0.1:5000/find", findride, "");
 }
 
 function offeraride() {
@@ -40,10 +40,11 @@ function offeraride() {
         "date": date,
         "hour": hour,
         "seats": seats,
-        "price":price        
+        "price": price
     };
     postRequest("http://127.0.0.1:5000/offer", offerride, "/posting-successfull.html");
 }
+
 function postRequest(postUrl, userData, nextPageUrl) {
     var response = $.ajax({
         type: "POST",
@@ -57,7 +58,20 @@ function postRequest(postUrl, userData, nextPageUrl) {
 
     response.error(function() {})
 }
+
 function getofferedrides() {
     postRequest("http://127.0.0.1:5000/offered", {}, "");
 }
 
+function getRequest(postUrl, userData, nextPageUrl) {
+    var response = $.ajax({
+        type: "GET",
+        contentType: "application/json;",
+        url: postUrl,
+        success: function(result) {
+            location.href = nextPageUrl;
+        }
+    });
+
+    response.error(function() {})
+}
