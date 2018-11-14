@@ -5,7 +5,9 @@ window.addEventListener('DOMContentLoaded', function() {
         // options here
         format: 'dd/mm/yyyy',
         todayButton: false,
-        clearButton: false
+        clearButton: false,
+        minDate: new Date(),
+        defaultDate: new Date()
     });
 });
 
