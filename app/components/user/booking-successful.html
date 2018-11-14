@@ -39,23 +39,27 @@
 
                             <table style="text-align:left;">
                                     <tr>
-                                    <td> <label for="from" style="">From </label></td>
-                                    <td> blank</td>                        </tr>
+                                    <td> From </td>
+                                    <td id="frominbs"> </td>                        
+                                    </tr>
+                                    
                                     <tr>
-                                        <td> <label for="to">To </label></td>
-                                        <td> blank</td>
+                                        <td>To </label></td>
+                                        <td id="toinbs"> </td>
                                     </tr>
                                         
                                     <tr>
-                                            <td> <label for="date">Date </label></td>
-                                            <td> blank</td>                        </tr>
+                                            <td> Date </td>
+                                            <td id="dateinbs"> </td>                        
+                                        </tr>
                                     <tr>
-                                            <td> <label for="Hour">Hour </label></td>
-                                            <td> blank</td>                        </tr>
+                                            <td> Hour </td>
+                                            <td id="hourinbs"> </td>                        
+                                        </tr>
                                        
                                     <tr>
                                             <td> <label for="seats">Seats </label></td>
-                                            <td> blank</td>                        
+                                            <td id="seatsinbs"> </td>                        
                                     </tr>
                         </table>
                     </div>
@@ -74,7 +78,15 @@
     <script src="../../../assets/js/skel.min.js"></script>
     <script src="../../../assets/js/util.js"></script>
     <script src="../../../assets/js/main.js"></script>
+    <script src="../Traveller/ride.js"></script>
     <script src="../../../DatePickerX-master/src/js/DatePickerX.js"></script>
+
+    <script>
+            $(document).ready(function( ){
+                displaybooking();
+        });
+        
+        </script>
 
 </body>
 

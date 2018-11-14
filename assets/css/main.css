@@ -2116,7 +2116,9 @@
 	textarea {
 		padding: 0.75em 1em;
 	}
-
+	td label{
+		font-size: 0.75em!important;
+	}
 	input[type=],
 	input[type="radio"] {
 		-moz-appearance: none;
