@@ -150,15 +150,16 @@ function getDataRequest(postUrl) {
         url: postUrl,
 
         success: function(result) {
-            displayUserData(result)
-                // location.href = nextPageUrl
+            Cookies.set("email", result.userMail);
+            displayUserData(result);
         }
 
     });
 
     response.error(function() {})
 }
-function addvehicledetails(){
+
+function addvehicledetails() {
     if (document.getElementById('agree').checked) {
         var regField = document.getElementById("reg");
         var reg = regField.value;
@@ -169,8 +170,7 @@ function addvehicledetails(){
             "model": model,
         };
         postRequest("http://localhost:5000/blabla", vehicledetails, "profilepage");
-    } 
-    else {
+    } else {
         alert("Please agree to the Terms and Conditions");
     }
 }
