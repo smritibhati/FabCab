@@ -43,10 +43,11 @@
                         <!-- <form method="post" action="#"> -->
 
                         <div>
-                            <input type="email" name="user-mail" id="user-mail" placeholder="Email" required/>
+                            <input type="email" name="user-mail" id="user-mail" placeholder="Email" onblur="emailValidate(this);"/>
+                            <p id="emailError" style="color: red"></p>
                         </div>
                         <div>
-                            <input type="password" name="user-pass" id="user-pass" placeholder="Password" required/>
+                            <input type="password" name="user-pass" id="user-pass" placeholder="Password"/>
                         </div>
                         <div>
                             <span style="align-content: left!important; "><a href="forgotPassword.html">Forgot Password?</a></span>
@@ -55,7 +56,7 @@
                             <span style="align-content: left!important; ">Not a member yet?<a href="signup.html">Sign Up</a></span>
                         </div>
                         <div>
-                            <input type="submit" name="Submit" id="submit" value="Sign In" onclick="login()" />
+                            <input type="submit" name="Submit" id="submit" value="Sign In" onclick="validateLogin(); login();" />
                         </div>
 
                         <!-- </form> -->
