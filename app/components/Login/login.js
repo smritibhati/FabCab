@@ -25,14 +25,14 @@ function login() {
     var emailField = document.getElementById("user-mail");
     var email = emailField.value;
     var passField = document.getElementById("user-pass");
-    var mobile = mobileField.value;
+    var pass = passField.value;
     var user = {
         "user-mail": email,
         "user-pass": pass
     };
 
     //registerData.error(function(){alert("Something went wrong");})
-    postRequest("http://127.0.0.1:5000/login", user, "/verification.html");
+    postRequest("http://127.0.0.1:5000/login", user, "../user/account.html");
 }
 
 function check_pass() {
@@ -60,7 +60,7 @@ function verify() {
 function postRequest(postUrl, userData, nextPageUrl) {
     var response = $.ajax({
         type: "POST",
-        contentType: "application/json;",
+        contentType: "application/json",
         url: postUrl,
         data: JSON.stringify(userData),
         success: function(result) {
