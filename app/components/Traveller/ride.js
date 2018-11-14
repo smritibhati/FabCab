@@ -166,7 +166,13 @@ function getDataRequest(postUrl) {
 
     response.error(function() {})
 }
-
+function displayUserData(result){
+   $("#nameinnavbar").html(result.userName);
+   $("#aname").html(result.userName);
+   $("#aemail").html(result.userMail);
+   $("#aphone").html(result.userMob);
+   $("#adob").html(result.userDoj);
+}
 function addvehicledetails() {
     if (document.getElementById('agree').checked) {
         var regField = document.getElementById("reg");
