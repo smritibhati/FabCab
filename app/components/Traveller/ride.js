@@ -180,3 +180,62 @@ function postUserDataRequest(postUrl, userData, nextPageUrl) {
 
     response.error(function() {})
 }
+
+/*********************************************************************/
+function checkSource(field){
+    if (field.value.length  == 0) 
+    {
+        document.getElementById("sourceX").innerHTML = "Required Field";
+        return false;
+    }else{
+        document.getElementById("sourceX").innerHTML = "";
+        return true;
+    }
+}
+
+function checkDest(field){
+    if (field.value.length  == 0) 
+    {
+        document.getElementById("destX").innerHTML = "Required Field";
+        return false;
+    }else{
+        document.getElementById("destX").innerHTML = "";
+        return true;
+    }
+}
+
+function rideFindValidate(){
+    var x = checkSource(document.getElementById("source"));
+    x = x & checkDest(document.getElementById("dest"));
+    if(x == true){
+        return true;
+    }else{
+        return false
+    }
+}
+
+function offerRideValidate(){
+    var x = checkSource(document.getElementById("source"));
+    x = x & checkDest(document.getElementById("dest"));
+    if(x == true){
+        var flag = 0;
+        var seats = document.getElementById("seats");
+        var price = document.getElementById("price");
+        if(seats.value.length == 0){
+            document.getElementById("seatsX").innerHTML = "Required Field";
+            flag = 1;
+        }
+        if(price.value.length == 0){
+            document.getElementById("priceX").innerHTML = "Required Field";
+            flag = 1;
+        }
+        if(flag = 1){
+            return false;
+        }else{
+            return true;
+        }
+    }else{
+        return false
+    }
+}
+/*********************************************************************/
