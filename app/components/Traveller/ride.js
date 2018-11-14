@@ -158,3 +158,19 @@ function getDataRequest(postUrl) {
 
     response.error(function() {})
 }
+function addvehicledetails(){
+    if (document.getElementById('agree').checked) {
+        var regField = document.getElementById("reg");
+        var reg = regField.value;
+        var modelField = document.getElementById("model");
+        var model = modelField.value;
+        var vehicledetails = {
+            "registration": reg,
+            "model": model,
+        };
+        postRequest("http://localhost:5000/blabla", vehicledetails, "profilepage");
+    } 
+    else {
+        alert("Please agree to the Terms and Conditions");
+    }
+}
