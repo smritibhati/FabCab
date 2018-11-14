@@ -32,7 +32,7 @@ function login() {
     };
 
     //registerData.error(function(){alert("Something went wrong");})
-    postRequest("http://127.0.0.1:5000/login", user, "../user/account.html");
+    postLoginRequest("http://127.0.0.1:5000/login", user, "../user/account.html");
 }
 
 function check_pass() {
