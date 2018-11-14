@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>FabCab</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../../../assets/css/main.css" />
+    <link rel="shortcut icon" href="../../../images/favicon.ico">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="../../../DatePickerX-master/dist/css/DatePickerX.css">
+
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="inner">
+            <a href="../../../index.html" class="logo"><strong>FabCab</strong> </a>
+            <nav id="nav">
+            </nav>
+            <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+        </div>
+    </header>
+
+    <!-- Banner -->
+    <section id="banner2">
+        <div class="container-fluid">
+            <div class="inner">
+                <header>
+                    <h2>Vehicle Details</h2>
+                
+                </header>
+                <br />
+                <div class="row">
+                    <div class="col-md-6" style="position: relative; left: 25%; ">
+
+                        <div>
+                            <input type="text" name="reg" id="reg" placeholder="Registeration Number" />
+                        </div>
+                        <div>
+                            <input type="text" name="model" id="model" placeholder="Model" />
+                        </div>
+                        <input type="checkbox" name="checkbox" value="check" id="agree" style="color:black;"> I agree to the Terms and Conditions and Privacy Policy and the Information filled by me is correct.
+                        <div>
+                            <input type="submit" name="Submit" id="submit" value="Add" onclick="addvehicledetails()" />
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Three -->
+
+
+    <!-- Scripts -->
+    <script src="../../../assets/js/jquery.min.js"></script>
+    <script src="../../../assets/js/skel.min.js"></script>
+    <script src="../../../assets/js/util.js"></script>
+    <script src="ride.js"></script>
+    <script src="../../../DatePickerX-master/src/js/DatePickerX.js"></script>
+
+</body>
+
+</html>

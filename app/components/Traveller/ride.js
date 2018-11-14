@@ -93,16 +93,33 @@ function displayOfferedRides(result) {
     $("#past").html("");
     $("#upcoming").html("");
     var today = new Date();
-    var date = new Date();
     var dd = today.getDate();
     var mm = today.getMonth() + 1;
 
     for (var len = 0; len < result.rides.length; len++) {
-        date = result.rides[len].date;
+        var date = result.rides[len].date;
+        date = new Date(date);
+        var month = date.getMonth() + 1;
+        var day = date.getDate();
+        var hour = result.rides[len].hour;
 
-        if (date.getMonth() >= mm && date.getDate() >= dd && date.getHours() >= today.getHours())
+        if (month > mm) {
             $("#upcoming").append("<div class = 'col-md-8 col-md-offset-1' style = 'border : dimgray 0.5px solid; position: relative; top: 3em; margin: 2em;padding: 1em;'> <span> " + result.rides[len].source + "</span> <span> <i class='fa fa-long-arrow-right' aria-hidden='true'> </i> </span><span>" + result.rides[len].dest + "</span><span  id='block-span'> At:" + result.rides[len].hour + "  </span><span id='block-span'>Price : <strong> " + result.rides[len].price + " </strong></span></div>");
-        else
+        } else if (month == mm) {
+            if (day > dd) {
+                $("#upcoming").append("<div class = 'col-md-8 col-md-offset-1' style = 'border : dimgray 0.5px solid; position: relative; top: 3em; margin: 2em;padding: 1em;'> <span> " + result.rides[len].source + "</span> <span> <i class='fa fa-long-arrow-right' aria-hidden='true'> </i> </span><span>" + result.rides[len].dest + "</span><span  id='block-span'> At:" + result.rides[len].hour + "  </span><span id='block-span'>Price : <strong> " + result.rides[len].price + " </strong></span></div>");
+            } else if (day < dd) {
+                $("#past").append("<div class = 'col-md-8 col-md-offset-1' style = 'border : dimgray 0.5px solid; position: relative; top: 3em; margin: 2em;padding: 1em;'> <span> " + result.rides[len].source + "</span> <span> <i class='fa fa-long-arrow-right' aria-hidden='true'> </i> </span><span>" + result.rides[len].dest + "</span><span  id='block-span'> At:" + result.rides[len].hour + "  </span><span id='block-span'>Price : <strong> " + result.rides[len].price + " </strong></span></div>");
+            } else {
+                if (hour > hh) {
+                    $("#upcoming").append("<div class = 'col-md-8 col-md-offset-1' style = 'border : dimgray 0.5px solid; position: relative; top: 3em; margin: 2em;padding: 1em;'> <span> " + result.rides[len].source + "</span> <span> <i class='fa fa-long-arrow-right' aria-hidden='true'> </i> </span><span>" + result.rides[len].dest + "</span><span  id='block-span'> At:" + result.rides[len].hour + "  </span><span id='block-span'>Price : <strong> " + result.rides[len].price + " </strong></span></div>");
+                } else if (hour == hh) {
+                    $("#upcoming").append("<div class = 'col-md-8 col-md-offset-1' style = 'border : dimgray 0.5px solid; position: relative; top: 3em; margin: 2em;padding: 1em;'> <span> " + result.rides[len].source + "</span> <span> <i class='fa fa-long-arrow-right' aria-hidden='true'> </i> </span><span>" + result.rides[len].dest + "</span><span  id='block-span'> At:" + result.rides[len].hour + "  </span><span id='block-span'>Price : <strong> " + result.rides[len].price + " </strong></span></div>");
+                } else {
+                    $("#past").append("<div class = 'col-md-8 col-md-offset-1' style = 'border : dimgray 0.5px solid; position: relative; top: 3em; margin: 2em;padding: 1em;'> <span> " + result.rides[len].source + "</span> <span> <i class='fa fa-long-arrow-right' aria-hidden='true'> </i> </span><span>" + result.rides[len].dest + "</span><span  id='block-span'> At:" + result.rides[len].hour + "  </span><span id='block-span'>Price : <strong> " + result.rides[len].price + " </strong></span></div>");
+                }
+            }
+        } else
             $("#past").append("<div class = 'col-md-8 col-md-offset-1' style = 'border : dimgray 0.5px solid; position: relative; top: 3em; margin: 2em;padding: 1em;'> <span> " + result.rides[len].source + "</span> <span> <i class='fa fa-long-arrow-right' aria-hidden='true'> </i> </span><span>" + result.rides[len].dest + "</span><span  id='block-span'> At:" + result.rides[len].hour + "  </span><span id='block-span'>Price : <strong> " + result.rides[len].price + " </strong></span></div>");
     }
 }
@@ -140,4 +157,20 @@ function getDataRequest(postUrl) {
     });
 
     response.error(function() {})
+}
+function addvehicledetails(){
+    if (document.getElementById('agree').checked) {
+        var regField = document.getElementById("reg");
+        var reg = regField.value;
+        var modelField = document.getElementById("model");
+        var model = modelField.value;
+        var vehicledetails = {
+            "registration": reg,
+            "model": model,
+        };
+        postRequest("http://localhost:5000/blabla", vehicledetails, "profilepage");
+    } 
+    else {
+        alert("Please agree to the Terms and Conditions");
+    }
 }
