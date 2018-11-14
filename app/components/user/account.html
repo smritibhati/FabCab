@@ -21,7 +21,7 @@
             <nav id="nav">
                 <a href="#">
                     <div class="dropdown">
-                        <div class="dropbtn">Smriti</div>
+                        <div class="dropbtn" id="nameinnavbar"></div>
                         <div class="dropdown-content">
                             <a href="#">Profile</a>
                             <a href="bookings.html">Bookings</a>
@@ -50,46 +50,47 @@
                     <img src="../../../images/profile.png" style="height:20em ;width:15em" />
                 </div>
                 <div class="col-md-8" style="text-align:left">
-                    <h2> Smriti Bhati </h2>
+                    <h2 id="nameinheading"> </h2>
                     <button type="button" class="btn btn-success" style="color: white!important;">Subscribe</button>
                 </div>
             </div>
+            <div class="row">
             <ul class="nav nav-tabs " style="font-size: 1.25em;
     font-weight: 700;">
                 <li class="active"><a href="#profile">Profile</a></li>
                 <li><a href="#vehicledetails">Vehicle Details</a></li>
             </ul>
-
+        </div>
             <div class="tab-content">
                 <div id="profile" class="tab-pane fade in active">
 
                     <div class="col-md-6">
-                        <form method="post" action="#">
+            
                             <table style="text-align:left">
                                 <tr>
                                     <td> <label for="name" style="">Name </label></td>
-                                    <td> blank</td>
+                                    <td id= "aname"> </td>
                                 </tr>
                                 <tr>
                                     <td> <label for="email">Email </label></td>
-                                    <td> blank</td>
+                                    <td id="aemail"> </td>
                                 </tr>
 
                                 <tr>
                                     <td> <label for="gender">Gender </label></td>
-                                    <td> blank</td>
+                                    <td id="agender"> </td>
                                 </tr>
                                 <tr>
                                     <td> <label for="phone">Phone </label></td>
-                                    <td> blank</td>
+                                    <td id="aphone"> </td>
                                 </tr>
 
                                 <tr>
                                     <td> <label for="dob">Birth </label></td>
-                                    <td> blank</td>
+                                    <td id="adob"> </td>
                                 </tr>
                             </table>
-                        </form>
+                        
                     </div>
                 </div>
                 <div id="vehicledetails" class="tab-pane fade">
