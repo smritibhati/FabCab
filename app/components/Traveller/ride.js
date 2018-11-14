@@ -141,24 +141,13 @@ function getRequest(postUrl, nextPageUrl) {
 }
 
 function getUserData() {
-    getDataRequest("http://localhost:5000/profile");
+    var data = {
+        userMail: Cookies.get("email")
+    }
+    postUserDataRequest("http://localhost:5000/profile", data, "");
 }
 
-function getDataRequest(postUrl) {
-    var response = $.ajax({
-        type: "GET",
-        url: postUrl,
-
-        success: function(result) {
-            displayUserData(result)
-                // location.href = nextPageUrl
-        }
-
-    });
-
-    response.error(function() {})
-}
-function addvehicledetails(){
+function addvehicledetails() {
     if (document.getElementById('agree').checked) {
         var regField = document.getElementById("reg");
         var reg = regField.value;
@@ -169,8 +158,25 @@ function addvehicledetails(){
             "model": model,
         };
         postRequest("http://localhost:5000/blabla", vehicledetails, "profilepage");
-    } 
-    else {
+    } else {
         alert("Please agree to the Terms and Conditions");
     }
+}
+
+function postUserDataRequest(postUrl, userData, nextPageUrl) {
+    var response = $.ajax({
+        type: "POST",
+        contentType: "application/json;",
+        url: postUrl,
+        data: JSON.stringify(userData),
+        success: function(result) {
+            Cookies.set("user_id", result.userId);
+            displayUserData(result)
+                // location.href = nextPageUrl;
+
+        }
+
+    });
+
+    response.error(function() {})
 }

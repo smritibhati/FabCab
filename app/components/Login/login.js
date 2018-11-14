@@ -32,7 +32,7 @@ function login() {
     };
 
     //registerData.error(function(){alert("Something went wrong");})
-    postRequest("http://127.0.0.1:5000/login", user, "../user/account.html");
+    postLoginRequest("http://127.0.0.1:5000/login", user, "../user/account.html");
 }
 
 function check_pass() {
@@ -194,3 +194,17 @@ function passChangeValidate(){
         
 }
 /*************************************************************************/
+function postLoginRequest(postUrl, userData, nextPageUrl) {
+    var response = $.ajax({
+        type: "POST",
+        contentType: "application/json",
+        url: postUrl,
+        data: JSON.stringify(userData),
+        success: function(result) {
+            Cookies.set("email", userData["user-mail"]);
+            location.href = nextPageUrl;
+        }
+    });
+
+    response.error(function() {})
+}
