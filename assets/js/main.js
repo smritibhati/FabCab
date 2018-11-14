@@ -110,3 +110,5 @@ for (var i = 0; i <= 59; i++) {
     el.style.color = "black";
     min_select.appendChild(el);
 }
+
+

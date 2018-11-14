@@ -43,19 +43,19 @@
                     <!-- <form> -->
                     <div class="row" style="background-color:lightgray ; border-radius: 5px; height:6em; padding: 15px;">
                         <div class="col-md-3">
-                            <input type="text" name="source" style="color: black; background-color:white;" id="source" value="" placeholder="Leaving from" />
+                            <input type="text" name="source" style="color: black; background-color:white;" id="source" value="" placeholder="Leaving from" required/>
                         </div>
                         <div class="col-md-3">
-                            <input type="text" name="dest" style="color: black; background-color:white;" id="dest" value="" placeholder="Going To" />
+                            <input type="text" name="dest" style="color: black; background-color:white;" id="dest" value="" placeholder="Going To" required/>
                         </div>
                         <div class="col-md-3" style="color:black!important ">
                             <input type="text" style="display: inline!important; width: 50%!important; background-color:white;color: black; float: left;" name="demo" placeholder="Date" id="date">
-                            <select id="hour" style="color: black; width:20%; display: inline!important; background-color:white; position: relative; top:0.75em;">
+                            <select id="hour" style="color: black; width:20%; display: inline!important; background-color:white;  top:0.75em;" required>
                                         <option style="color: black;" value="">HH</option>
 									</select>
                         </div>
                         <div class="col-md-1">
-                            <input type="number" style="display: inline!important; width: 130%!important; background-color:white;color: black ; position: relative; left:-2em;" name="demo" placeholder="Seats" id="seats">
+                            <input type="number" min="1" max="7" style="display: inline!important; width: 130%!important; background-color:white;color: black ; position: relative; left:-2em;" name="demo" placeholder="Seats" id="seats" required>
                         </div>
                         <div class="col-md-2">
                             <button onclick="findaride()">Search </button>

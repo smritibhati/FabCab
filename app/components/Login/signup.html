@@ -43,23 +43,28 @@
                         <!-- <form> -->
 
                         <div>
-                            <input type="email" name="user-mail" id="user-mail" placeholder="Email" required/>
+                            <input type="email" name="user-mail" id="user-mail" placeholder="Email" onblur="emailValidate(this);" />
+                            <p id="emailError" style="color: red"></p>
                         </div>
 
                         <div>
-                            <input type="text" name="user-name" id="user-name" placeholder="Name" required/>
+                            <input type="text" name="user-name" id="user-name" placeholder="Name" onblur="nameValidate(this);"/>
+                            <p id="nameError" style="color: red"></p>
                         </div>
                         <div>
-                            <input type="text" name="user-mob" id="user-mob" pattern="[6789][0-9]{9}" title="Enter A Valid Mobile Number" placeholder="Mobile" required/>
+                            <input type="text" name="user-mob" id="user-mob" onblur="numberValidate(this);" placeholder="Mobile"/>
+                            <p id="mobileError" style="color: red"></p>
                         </div>
                         <div>
-                            <input type="password" id="user-pass" title="Must Contain minimum 8 characters, 1 lowercase, 1 uppercase, 1 special character." pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,20}$" placeholder="Password" required/>
+                            <input type="password" id="user-pass" placeholder="Password" onblur="passwordValidate(this);"/>
+                            <p id="passError1" style="color: red"></p>
                         </div>
                         <div>
-                            <input type="password" id="confirm-pass" title="The Passwords Must Be Same" placeholder="Confirm Password" required>
+                            <input type="password" id="confirm-pass" placeholder="Confirm Password" onblur="matchPasswords(this);"/>
+                            <p id="passError2" style="color: red"></p>
                         </div>
                         <div>
-                            <input type="submit" name="Submit" id="submit" value="Sign Up" onclick="register()" />
+                            <input type="submit" name="Submit" id="submit" value="Sign Up" onclick="validateSignup(); register();" />
                         </div>
 
                         <!-- </form> -->
