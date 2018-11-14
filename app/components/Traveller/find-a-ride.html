@@ -5,112 +5,80 @@
 	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
 -->
 <html>
-	<head>
-		<title>FabCab</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="../../../assets/css/main.css" />
-		<link rel="shortcut icon" href="../../../temp.js">
-		<link rel="shortcut icon" href="images/favicon.ico">
-		<!-- Latest compiled and minified CSS -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">	
-		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-		<link rel="stylesheet" href="../../../DatePickerX-master/dist/css/DatePickerX.css">
-		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8-biRTegRnn5jDJNoPbyZ9oWUicObzI0&libraries=places"></script>
-	</head>
-	<body>
 
-		<!-- Header -->
-			<header id="header">
-				<div class="inner">
-					<a href="../../../index.html" class="logo"><strong>FabCab</strong> </a>
-					<nav id="nav">
-						<a href="find-a-ride.html">  <i class="fa fa-car" aria-hidden="true"></i>  Find a Ride</a>
-						<a href="offerr-ride.html"> <i class="fa fa-plus-square" aria-hidden="true"></i>
-							Offer a Ride</a>
-						<a href="../Login/login.html">Login</a>
-					</nav>
-					<a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
-				</div>
-			</header>
+<head>
+    <title>FabCab</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../../../assets/css/main.css" />
+    <link rel="shortcut icon" href="../../../temp.js">
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="../../../DatePickerX-master/dist/css/DatePickerX.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8-biRTegRnn5jDJNoPbyZ9oWUicObzI0&libraries=places"></script>
+</head>
 
-		<!-- Banner -->
-			<section id="banner2">
-				<div class= "container-fluid">
-					<div class="inner">
-                        <header> 
-							<form>
-                            <div class="row" style="background-color:lightgray ; border-radius: 5px; height:6em; padding: 15px;">
-								<div class="col-md-3">
-                                    <input type="text" name="source"  style="color: black; background-color:white;" id="source" value="" placeholder="Leaving from" />
-							</div>
-							<div class="col-md-3">
-								<input type="text" name="dest"  style="color: black; background-color:white;" id="dest" value="" placeholder="Going To" />
-							</div>
-							<div class="col-md-3" style="color:black!important ">
-                                    <input type="text" style="display: inline!important; width: 50%!important; background-color:white;color: black; float: left;" name="demo" placeholder="Date" id="date">
-                                    <select id="hour" style="color: black; width:20%; display: inline!important; background-color:white; position: relative; top:0.75em;">
+<body>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="inner">
+            <a href="../../../index.html" class="logo"><strong>FabCab</strong> </a>
+            <nav id="nav">
+                <a href="find-a-ride.html"> <i class="fa fa-car" aria-hidden="true"></i> Find a Ride</a>
+                <a href="offerr-ride.html"> <i class="fa fa-plus-square" aria-hidden="true"></i> Offer a Ride</a>
+                <a href="../Login/login.html">Login</a>
+            </nav>
+            <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+        </div>
+    </header>
+
+    <!-- Banner -->
+    <section id="banner2">
+        <div class="container-fluid">
+            <div class="inner">
+                <header>
+                    <!-- <form> -->
+                    <div class="row" style="background-color:lightgray ; border-radius: 5px; height:6em; padding: 15px;">
+                        <div class="col-md-3">
+                            <input type="text" name="source" style="color: black; background-color:white;" id="source" value="" placeholder="Leaving from" />
+                        </div>
+                        <div class="col-md-3">
+                            <input type="text" name="dest" style="color: black; background-color:white;" id="dest" value="" placeholder="Going To" />
+                        </div>
+                        <div class="col-md-3" style="color:black!important ">
+                            <input type="text" style="display: inline!important; width: 50%!important; background-color:white;color: black; float: left;" name="demo" placeholder="Date" id="date">
+                            <select id="hour" style="color: black; width:20%; display: inline!important; background-color:white; position: relative; top:0.75em;">
                                         <option style="color: black;" value="">HH</option>
 									</select>
-							</div>
-							<div class="col-md-1">
-									<input type="number" style="display: inline!important; width: 130%!important; background-color:white;color: black ; position: relative; left:-2em;" name="demo" placeholder="Seats" id="seats">
-								</div>		
-							<div class="col-md-2">
-								<button>Search </button>
-							</div>
-                            </div>
-                          </form>
-                        </header>
-						<div class="row">
-                          <table class= "table table-striped" > 
-							<thead style="color: black!important">
-									<th> Source </th>
-									<th> Destination </th>
-									<th> Driver </th>
-									<th> Price </th>
-									<th>  </th>
-							</thead>  
-							<tbody> 
-									<tr>
-											<td>
-												Gachibowli
-											</td>
-											<td>
-													Gachibowli
-											</td>
-											<td>
-														Imran Khan
-											</td>
-											<td>
-													400
-											</td>
-											<td>
-													<button class = "btn btn-default" style="width: 40%; color: black; background-color: gold;" > BOOK </button>
-											</td>
-										</tr>
-										<tr>
-												<td>
-													Gachibowli
-												</td>
-												<td>
-														Gachibowli
-												</td>
-												<td>
-															Imran Khan
-												</td>
-												<td>
-														400
-												</td>
-												<td>
-														<button class = "btn btn-default" style="width: 40%; color: black; background-color: gold;" > BOOK </button>
-													</td>
-											</tr>
-							</tbody>
-							
-						  </table>
+                        </div>
+                        <div class="col-md-1">
+                            <input type="number" style="display: inline!important; width: 130%!important; background-color:white;color: black ; position: relative; left:-2em;" name="demo" placeholder="Seats" id="seats">
+                        </div>
+                        <div class="col-md-2">
+                            <button onclick="findaride()">Search </button>
+                        </div>
+                    </div>
+                    <!-- </form> -->
+                </header>
+                <div class="row">
+                    <table class="table table-striped">
+                        <thead style="color: black!important">
+                            <th> Source </th>
+                            <th> Destination </th>
+                            <th> Driver </th>
+                            <th> Price </th>
+                            <th> </th>
+                        </thead>
+                        <tbody id="found">
 
-								<!-- <div>
+                        </tbody>
+
+                    </table>
+
+                    <!-- <div>
 									<span class="icon fa-car"></span>
 									<h3>Aliquam</h3>
 									<p>Suspendisse amet ullamco</p>
@@ -128,19 +96,20 @@
 									<p>Nulla vitae mauris non felis</p>
 								</div> -->
 
-						</div>
-					</div>
-				</div>
-				</section>
-			<!-- Three -->
-		<!-- Scripts -->
-			<script src="../../../assets/js/jquery.min.js"></script>
-			<script src="../../../assets/js/skel.min.js"></script>
-			<script src="../../../assets/js/util.js"></script>
-			<script src="../../../assets/js/main.js"></script>
-			<script src="ride.js"></script>
-			
-			<script src="../../../DatePickerX-master/src/js/DatePickerX.js"></script>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Three -->
+    <!-- Scripts -->
+    <script src="../../../assets/js/jquery.min.js"></script>
+    <script src="../../../assets/js/skel.min.js"></script>
+    <script src="../../../assets/js/util.js"></script>
+    <script src="../../../assets/js/main.js"></script>
+    <script src="ride.js"></script>
 
-	</body>
+    <script src="../../../DatePickerX-master/src/js/DatePickerX.js"></script>
+
+</body>
+
 </html>
