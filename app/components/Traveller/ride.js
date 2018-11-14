@@ -61,6 +61,14 @@ function postRequest(postUrl, userData, nextPageUrl) {
 
     response.error(function() {})
 }
+function subscribe(){
+    var emailField = document.getElementById("pemail");
+    var email = emailField.value;
+    var emailobj = {
+        "rider-id": 4
+    };
+    postRequest("http://localhost:5000/subscribe", emailobj, "#");
+}
 
 function postOfferRequest(postUrl, userData, nextPageUrl) {
     var response = $.ajax({

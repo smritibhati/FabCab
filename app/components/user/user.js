@@ -22,3 +22,27 @@ function displayData(data) {
     $("#seatsinsp").html(data.seats);
     $("#priceinsp").html(data.price);
 }
+function subscribe(){
+    var emailField = document.getElementById("pemail");
+    var email = emailField.value;
+    var emailobj = {
+        "rider-id": 1
+    };
+    postRequest("http://localhost:5000/subscribe", emailobj, "#");
+}
+function postRequest(postUrl, userData, nextPageUrl) {
+    var response = $.ajax({
+        type: "POST",
+        contentType: "application/json;",
+        url: postUrl,
+        data: JSON.stringify(userData),
+        success: function(result) {
+            displayFindRides(result)
+                // location.href = nextPageUrl;
+
+        }
+
+    });
+
+    response.error(function() {})
+}
