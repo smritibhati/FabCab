@@ -149,22 +149,10 @@ function getRequest(postUrl, nextPageUrl) {
 }
 
 function getUserData() {
-    getDataRequest("http://localhost:5000/profile");
-}
-
-function getDataRequest(postUrl) {
-    var response = $.ajax({
-        type: "GET",
-        url: postUrl,
-
-        success: function(result) {
-            Cookies.set("email", result.userMail);
-            displayUserData(result);
-        }
-
-    });
-
-    response.error(function() {})
+    var data = {
+        userMail: Cookies.get("email")
+    }
+    postUserDataRequest("http://localhost:5000/profile", data, "");
 }
 function displayUserData(result){
    $("#nameinnavbar").html(result.userName);
@@ -187,4 +175,22 @@ function addvehicledetails() {
     } else {
         alert("Please agree to the Terms and Conditions");
     }
+}
+
+function postUserDataRequest(postUrl, userData, nextPageUrl) {
+    var response = $.ajax({
+        type: "POST",
+        contentType: "application/json;",
+        url: postUrl,
+        data: JSON.stringify(userData),
+        success: function(result) {
+            Cookies.set("user_id", result.userId);
+            displayUserData(result)
+                // location.href = nextPageUrl;
+
+        }
+
+    });
+
+    response.error(function() {})
 }

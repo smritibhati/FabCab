@@ -70,3 +70,18 @@ function postRequest(postUrl, userData, nextPageUrl) {
 
     response.error(function() {})
 }
+
+function postLoginRequest(postUrl, userData, nextPageUrl) {
+    var response = $.ajax({
+        type: "POST",
+        contentType: "application/json",
+        url: postUrl,
+        data: JSON.stringify(userData),
+        success: function(result) {
+            Cookies.set("email", userData["user-mail"]);
+            location.href = nextPageUrl;
+        }
+    });
+
+    response.error(function() {})
+}
