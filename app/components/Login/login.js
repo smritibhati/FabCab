@@ -160,7 +160,7 @@ function validateSignup(){
     x = x & nameValidate(document.getElementById("user-name"));
     x = x & numberValidate(document.getElementById("user-mob"));
     x = x & passwordValidate(document.getElementById("user-pass"));
-    x = x & passwordValidate(document.getElementById("confirm-pass"));
+    x = x & matchPasswords(document.getElementById("confirm-pass"));
     if(x == true)
         return true;
     else

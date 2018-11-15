@@ -81,7 +81,7 @@ var src_searchBox = new google.maps.places.Autocomplete(src_input);
 var dest_searchBox = new google.maps.places.Autocomplete(dest_input);
 
 var hour_select = document.getElementById("hour");
-for (var i = 1; i <= 12; i++) {
+for (var i = 0; i <= 23; i++) {
     if (i < 10) {
         var opt = "0";
         opt += i;
@@ -110,5 +110,3 @@ for (var i = 0; i <= 59; i++) {
     el.style.color = "black";
     min_select.appendChild(el);
 }
-
-

@@ -43,10 +43,12 @@
                     <!-- <form> -->
                     <div class="row" style="background-color:lightgray ; border-radius: 5px; height:6em; padding: 15px;">
                         <div class="col-md-3">
-                            <input type="text" name="source" style="color: black; background-color:white;" id="source" value="" placeholder="Leaving from" required/>
+                            <input type="text" name="source" style="color: black; background-color:white;" id="source" placeholder="Leaving from" onblur="checkSource(this);" />
+                            <p id="sourceX" style="color: red"></p>
                         </div>
                         <div class="col-md-3">
-                            <input type="text" name="dest" style="color: black; background-color:white;" id="dest" value="" placeholder="Going To" required/>
+                            <input type="text" name="dest" style="color: black; background-color:white;" id="dest" value="" placeholder="Going To" onblur="checkDest(this);" />
+                            <p id="destX" style="color: red"></p>
                         </div>
                         <div class="col-md-3" style="color:black!important ">
                             <input type="text" style="display: inline!important; width: 50%!important; background-color:white;color: black; float: left;" name="demo" placeholder="Date" id="date">
@@ -58,7 +60,7 @@
                             <input type="number" min="1" max="7" style="display: inline!important; width: 130%!important; background-color:white;color: black ; position: relative; left:-2em;" name="demo" placeholder="Seats" id="seats" required>
                         </div>
                         <div class="col-md-2">
-                            <button onclick="findaride()">Search </button>
+                            <button onclick="rideFindValidate(); findaride()">Search </button>
                         </div>
                     </div>
                     <!-- </form> -->
@@ -101,15 +103,23 @@
         </div>
     </section>
     <!-- Three -->
-	<!-- Scripts -->
+    <!-- Scripts -->
     <script src="../../../assets/js/jquery.min.js"></script>
-	<script src="../../../assets/js/skel.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script src="../../../assets/js/skel.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
     <script src="../../../assets/js/util.js"></script>
     <script src="../../../assets/js/main.js"></script>
     <script src="ride.js"></script>
 
     <script src="../../../DatePickerX-master/src/js/DatePickerX.js"></script>
+    <script>
+        $(document).ready(function() {
+            $(".nav-tabs a").click(function() {
+                $(this).tab('show');
+            });
+            findaride();
+        });
+    </script>
 
 </body>
 

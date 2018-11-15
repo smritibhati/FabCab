@@ -12,7 +12,7 @@ function getData() {
         "date": date,
         "seats": seats,
         "price": price,
-        "hour":hour
+        "hour": hour
     }
     displayData(data);
 }
@@ -26,6 +26,8 @@ function displayData(data) {
     $("#hourinsp").html(data.hour);
 }
 
-function notifications(){
-    $("#badge").html("");
+function signOut() {
+    Cookies.remove('email');
+    Cookies.remove('id');
+    location.href = "../../../index.html";
 }
