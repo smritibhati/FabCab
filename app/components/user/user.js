@@ -28,6 +28,6 @@ function displayData(data) {
 
 function signOut() {
     Cookies.remove('email');
-    Cookies.remove('id');
+    Cookies.remove('user_id');
     location.href = "../../../index.html";
 }
