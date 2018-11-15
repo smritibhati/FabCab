@@ -21,7 +21,7 @@
             <nav id="nav">
                 <a href="#">
                     <div class="dropdown">
-                        <div class="dropbtn" id="nameinnavbar"></div>
+                        <div class="dropbtn" id="nameinnavbar"> </div>
                         <div class="dropdown-content">
                             <a href="profile.html">Profile</a>
                             <a href="bookings.html">Bookings</a>
@@ -34,11 +34,11 @@
                 </a>
                 <a href="../Traveller/find-a-ride.html"> <i class="fa fa-car" aria-hidden="true"></i> Find a Ride</a>
                 <a href="../Traveller/offerr-ride.html"> <i class="fa fa-plus-square" aria-hidden="true"></i> Offer a Ride</a>
-                <span><span class="badge" style="background-color:red; position: absolute;
+               <a >  <span><span id="badge" class="badge" style="background-color:red; position: absolute;
                   bottom:58%;
                   left: 99%;
-                  z-index: 10;}">4</span></span>
-                <a href="notifications.html" class="glyphicon glyphicon-bell" style="font-family: 'Glyphicons Halflings'!important;"></a>
+                  z-index: 10;}">4</span></span></a>
+                <a onclick="notifications()" class="glyphicon glyphicon-bell" style="font-family: 'Glyphicons Halflings'!important;"></a>
             </nav>
             <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
         </div>
@@ -60,29 +60,29 @@
                     <div class="tab-content">
                         <div id="profile" class="tab-pane fade in active">
 
-                            <div class="col-md-6">
+                            <div class="col-md-8">
 
                                 <table style="text-align:left">
                                     <tr>
-                                        <td> <label for="name" style="">Name </label></td>
+                                        <td style="font-size:2em;"> Name </td>
                                         <td id="aname"> </td>
                                     </tr>
                                     <tr>
-                                        <td> <label for="email">Email </label></td>
+                                        <td> Email </td>
                                         <td id="aemail"> </td>
                                     </tr>
 
                                     <tr>
-                                        <td> <label for="gender">Gender </label></td>
+                                        <td> Gender</td>
                                         <td id="agender"> </td>
                                     </tr>
                                     <tr>
-                                        <td> <label for="phone">Phone </label></td>
+                                        <td> Phone</td>
                                         <td id="aphone"> </td>
                                     </tr>
 
                                     <tr>
-                                        <td> <label for="dob">Birth </label></td>
+                                        <td>Joined on</td>
                                         <td id="adob"> </td>
                                     </tr>
                                 </table>
@@ -94,11 +94,11 @@
                                 <table style="text-align:left">
                                     <tr>
                                         <td> <label for="name" style="">Model </label></td>
-                                        <td> blank</td>
+                                        <td> </td>
                                     </tr>
                                     <tr>
                                         <td> <label for="email">Registration No. </label></td>
-                                        <td> blank</td>
+                                        <td> </td>
                                     </tr>
                                 </table>
                             </div>
@@ -117,6 +117,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
     <script src="../Traveller/ride.js"></script>
+    <script src="user.js"></script>
     <script>
         $(document).ready(function() {
             $(".nav-tabs a").click(function() {
