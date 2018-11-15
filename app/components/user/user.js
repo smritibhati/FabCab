@@ -22,3 +22,9 @@ function displayData(data) {
     $("#seatsinsp").html(data.seats);
     $("#priceinsp").html(data.price);
 }
+
+function signOut() {
+    Cookies.remove('email');
+    Cookies.remove('id');
+    location.href = "../../../index.html";
+}
