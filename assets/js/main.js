@@ -110,3 +110,10 @@ for (var i = 0; i <= 59; i++) {
     el.style.color = "black";
     min_select.appendChild(el);
 }
+
+function checkLoginStatus(){
+    if (Cookies.get("user_id")){
+        $("#login").hide();
+        $("#nameinnavbaronindex").html(Cookies.get("name"));
+    }
+}

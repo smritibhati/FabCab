@@ -19,9 +19,22 @@
         <div class="inner">
             <a href="index.html" class="logo"><strong>FabCab</strong> </a>
             <nav id="nav">
+                    <a href="#">
+                            <div class="dropdown">
+                                <div class="dropbtn" id="nameinnavbaronindex"> </div>
+                                <div class="dropdown-content">
+                                    <a href="app/components/user/account.html">Profile</a>
+                                    <a href="app/components/Traveller/bookings.html">Bookings</a>
+                                    <a href="app/components/Traveller/offeredrides.html">Offered Rides</a>
+                                    <a href="app/components/Login/changepassword.html">Change Password</a>
+                                    <hr>
+                                    <a onclick="signOut()">Sign out</a>
+                                </div>
+                            </div>
+                        </a>
                 <a href="app/components/Traveller/find-a-ride.html">Find a Ride</a>
                 <a href="app/components/Traveller/offerr-ride.html">Offer a Ride</a>
-                <a href="app/components/Login/login.html">Login</a>
+                <a href="app/components/Login/login.html" id="login">Login</a>
             </nav>
             <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
         </div>
@@ -155,6 +168,13 @@
     <script src="assets/js/main.js"></script>
     <script src="app/components/Traveller/ride.js"></script>
     <script src="DatePickerX-master/src/js/DatePickerX.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            checkLoginStatus();
+        });
+    </script>
 
 </body>
 

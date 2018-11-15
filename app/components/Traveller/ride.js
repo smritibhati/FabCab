@@ -286,10 +286,17 @@ function postOfferedRequest(postUrl, userData) {
 
 function displayFindRides(result) {
     $("#found").innerHtml = "";
-    for (var len = 0; len < result.rides.length; len++)
-        $("#found").append("<tr><td>" + result.rides[len].source + "</td><td>" + result.rides[len].dest + "</td><td>" + result.rides[len].name + "  </td><td> " + result.rides[len].price + "</td><td> <button class = 'btn btn-default' style='color: black; background-color: gold;' onclick='book(" + len + ")'>BOOK </button></td></tr>");
+    for (var len = 0; len < result.rides.length; len++){
+        var string=result.rides[len].mail;  
+        $("#found").append("<tr><td>" + result.rides[len].source + "</td><td>" + result.rides[len].dest + "</td><td> <a onclick='openprofile(\"" + string + "\")'>" + result.rides[len].name + " </a> </td><td> " + result.rides[len].price + "</td><td> <button class = 'btn btn-default' style='color: black; background-color: gold;' onclick='book(" + len + ")'>BOOK </button></td></tr>");
+    }
 }
-
+function openprofile(email){
+    var userObj = {
+        "userMail" : email
+    }
+    postUserDataRequestforprofile("http://localhost:5000/profile", userObj, "");
+}
 function book(index) {
     var required = data.rides[index];
     var bookride = {
@@ -369,6 +376,23 @@ function postUserDataRequest(postUrl, userData, nextPageUrl) {
 
     response.error(function() {})
 }
+function postUserDataRequestforprofile(postUrl, userData, nextPageUrl) {
+    var response = $.ajax({
+        type: "POST",
+        contentType: "application/json;",
+        url: postUrl,
+        data: JSON.stringify(userData),
+        success: function(result) {
+           
+            displayUserDataforprofile(result)
+                // location.href = nextPageUrl;
+
+        }
+
+    });
+
+    response.error(function() {})
+}
 
 function getDataRequest(postUrl) {
     var response = $.ajax({
@@ -401,6 +425,12 @@ function displayUserData(result) {
     $("#aphone").html(result.userMob);
     $("#adob").html(result.userDoj);
 }
+function displayUserDataforprofile(result) {
+    $("#pname").html(result.userName);
+    $("#pemail").html(result.userMail);
+    $("#pphone").html(result.userMob);
+    $("#pdob").html(result.userDoj);
+}
 
 function addvehicledetails() {
     if (document.getElementById('agree').checked) {
@@ -418,23 +448,23 @@ function addvehicledetails() {
     }
 }
 
-function postUserDataRequest(postUrl, userData, nextPageUrl) {
-    var response = $.ajax({
-        type: "POST",
-        contentType: "application/json;",
-        url: postUrl,
-        data: JSON.stringify(userData),
-        success: function(result) {
-            Cookies.set("user_id", result.userId);
-            displayUserData(result)
-                // location.href = nextPageUrl;
+// function postUserDataRequest(postUrl, userData, nextPageUrl) {
+//     var response = $.ajax({
+//         type: "POST",
+//         contentType: "application/json;",
+//         url: postUrl,
+//         data: JSON.stringify(userData),
+//         success: function(result) {
+//             Cookies.set("user_id", result.userId);
+//             displayUserData(result)
+//                 // location.href = nextPageUrl;
 
-        }
+//         }
 
-    });
+//     });
 
-    response.error(function() {})
-}
+//     response.error(function() {})
+// }
 
 function letsgo() {
     var sourceField = document.getElementById("source");
