@@ -1,32 +1,59 @@
 "use strict";
 var data;
+var sourceProf;
+
+function searchRide(){
+    var params = (new URL(document.location)).searchParams;
+    if (params.get("src")) {
+        var sourceParam = params.get("src");
+        var destParam = params.get("dest");
+        var hourParam = params.get("hour");
+        var dateParam = params.get("date");
+        var sourceField = document.getElementById("source");
+        var destField = document.getElementById("dest");
+        var dateField = document.getElementById("date");
+        var hourField = document.getElementById("hour");
+        var seatsField = document.getElementById("seats");
+        sourceField.value = sourceParam;
+        destField.value = destParam;
+        hourField.value = hourParam;
+        seatsField.value = 1;
+        dateField.value = dateParam;
+
+        var source = sourceField.value;
+        var dest = destField.value;
+        var date = dateField.value;
+        var hour = hourField.value;
+        var seats = seatsField.value;
+        
+        var findride = {
+            "userId": Cookies.get("user_id"),
+            "userMail": Cookies.get("email"),
+            "source": source,
+            "dest": dest,
+            "date": date,
+            "hour": hour,
+            "seats": seats
+        };
+        postRequest("http://localhost:5000/find", findride, "");
+    }
+}
 
 function findaride() {
-    var params = (new URL(document.location)).searchParams;
+    
     var source, dest, date, hour, seats;
     var sourceField = document.getElementById("source");
     var destField = document.getElementById("dest");
     var dateField = document.getElementById("date");
     var hourField = document.getElementById("hour");
     var seatsField = document.getElementById("seats");
-    if (params.get("src")) {
-        source = params.get("src");
-        dest = params.get("dest");
-        hour = params.get("hour");
-        date = params.get("date");
-        seats = 1;
-        sourceField.value = source;
-        destField.value = dest;
-        hourField.value = hour;
-        seatsField.value = 1;
-        dateField.value = date;
-    } else {
-        source = sourceField.value;
-        dest = destField.value;
-        date = dateField.value;
-        hour = hourField.value;
-        seats = seatsField.value;
-    }
+     
+    source = sourceField.value;
+    dest = destField.value;
+    date = dateField.value;
+    hour = hourField.value;
+    seats = seatsField.value;
+    
     var findride = {
         "userId": Cookies.get("user_id"),
         "userMail": Cookies.get("email"),
