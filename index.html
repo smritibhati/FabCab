@@ -37,35 +37,27 @@
                         <h2 style="color:gold">One stop travel solution for car-owners and passengers.</h2>
                     </div>
                     <div class="col-md-4">
-                        <form method="post">
+                        <!-- <form method="post"> -->
+                        <div>
                             <div>
-                                <div>
-                                    <input type="text" name="source"  style="color: white;" id="source" value="" placeholder="Leaving from" required/>
-                                </div>
+                                <input type="text" name="source" style="color: white;" id="source" value="" placeholder="Leaving from" required/>
+                            </div>
 
-                                <div>
-                                    <input type="text" name="dest"  style="color: white;" id="dest" value="" placeholder="Going To" required/>
-                                </div>
-                                <div>
-                                    <input type="text" style="display: inline!important; width: 40%!important; color: white" name="demo" placeholder="Date"/>
-                                    <select id="hour" style="color: white; width:15%; display: inline!important;">
+                            <div>
+                                <input type="text" name="dest" style="color: white;" id="dest" value="" placeholder="Going To" required/>
+                            </div>
+                            <div>
+                                <input type="text" style="display: inline!important; width: 78%!important; color: white" id="date" placeholder="Date" />
+                                <select id="hour" style="color: white; width:15%; display: inline!important;">
                                         <option style="color: black;" value="">HH</option>
                                     </select>
-                                    <span style="color: white;">:</span>
-                                    <select id="minute" style="color: white; width:15%; display: inline!important;">
-                                        <option style="color: black;" value="">MM</option>
-									</select>
-									<select id="ampm" style="color: white; width:15%; display: inline!important;">
-											<option style="color: black;" value="">AM</option>
-											<option style="color: black;" value="">PM</option>
-										</select>
 
-                                </div>
-                                <div>
-                                    <a href="#"><input type="submit" name="Submit" id="submit" value="Lets Go!" /></a>
-                                </div>
                             </div>
-                        </form>
+                            <div>
+                                <input type="submit" name="Submit" id="submit" value="Lets Go!" onclick="letsgo()" />
+                            </div>
+                        </div>
+                        <!-- </form> -->
 
 
                         <!-- <div>
@@ -126,26 +118,26 @@
 
             <div class="row" style="top:5em; position:relative;" id="threesteps">
                 <div class="col-md-4" style="background-color: ; border-radius: 5px; height: 20em">
-                        <i class="fa fa-user-plus fa-5x" aria-hidden="true" style="color:grey;"></i>
-                        <h2>JOIN</h2>
-                        <h3>
-                                Quick, Simple & Free! Sign up to offer empty car seats or to book seats.
+                    <i class="fa fa-user-plus fa-5x" aria-hidden="true" style="color:grey;"></i>
+                    <h2>JOIN</h2>
+                    <h3>
+                        Quick, Simple & Free! Sign up to offer empty car seats or to book seats.
 
-                        </h3>
+                    </h3>
                 </div>
                 <div class="col-md-4" style="background-color:; border-radius: 5px; height: 20em">
-                        <i class="fa fa fa-bullhorn fa-5x" aria-hidden="true"style="color:grey;" ></i>
-                        <h2>OFFER</h2>
-                        <h3>
-                                Search rides on your way and book seats. Post your ride to offer empty seats.
-                        </h3>
+                    <i class="fa fa fa-bullhorn fa-5x" aria-hidden="true" style="color:grey;"></i>
+                    <h2>OFFER</h2>
+                    <h3>
+                        Search rides on your way and book seats. Post your ride to offer empty seats.
+                    </h3>
                 </div>
                 <div class="col-md-4" style="background-color; border-radius: 5px; height: 20em;">
-                        <i class="fa fa fa-taxi fa-5x" aria-hidden="true" style="color:grey;"></i>
-                        <h2>TRAVEL TOGETHER</h2>
-                        <h3>
-                            Cut down fuel expenses while travelers need not worry about high fares.
-                        </h3>
+                    <i class="fa fa fa-taxi fa-5x" aria-hidden="true" style="color:grey;"></i>
+                    <h2>TRAVEL TOGETHER</h2>
+                    <h3>
+                        Cut down fuel expenses while travelers need not worry about high fares.
+                    </h3>
                 </div>
 
             </div>
@@ -161,6 +153,7 @@
     <script src="assets/js/skel.min.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
+    <script src="app/components/Traveller/ride.js"></script>
     <script src="DatePickerX-master/src/js/DatePickerX.js"></script>
 
 </body>

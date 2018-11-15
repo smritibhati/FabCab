@@ -1,16 +1,32 @@
 "use strict";
 var data;
+
 function findaride() {
+    var params = (new URL(document.location)).searchParams;
+    var source, dest, date, hour, seats;
     var sourceField = document.getElementById("source");
-    var source = sourceField.value;
     var destField = document.getElementById("dest");
-    var dest = destField.value;
     var dateField = document.getElementById("date");
-    var date = dateField.value;
     var hourField = document.getElementById("hour");
-    var hour = hourField.value;
     var seatsField = document.getElementById("seats");
-    var seats = seatsField.value;
+    if (params.get("src")) {
+        source = params.get("src");
+        dest = params.get("dest");
+        hour = params.get("hour");
+        date = params.get("date");
+        seats = 1;
+        sourceField.value = source;
+        destField.value = dest;
+        hourField.value = hour;
+        seatsField.value = 1;
+        dateField.value = date;
+    } else {
+        source = sourceField.value;
+        dest = destField.value;
+        date = dateField.value;
+        hour = hourField.value;
+        seats = seatsField.value;
+    }
     var findride = {
         "userId": Cookies.get("user_id"),
         "userMail": Cookies.get("email"),
@@ -46,7 +62,7 @@ function offeraride() {
         "seats": seats,
         "price": price
     };
-    postOfferRequest("http://localhost:5000/offer", offerride, "../user/posting-successful.html?src=" + offerride.source + "&dest=" + offerride.dest + "&date=" + offerride.date + "&seats=" + offerride.seats + "&price=" + offerride.price + "&hour="+ offerride.hour);
+    postOfferRequest("http://localhost:5000/offer", offerride, "../user/posting-successful.html?src=" + offerride.source + "&dest=" + offerride.dest + "&date=" + offerride.date + "&seats=" + offerride.seats + "&price=" + offerride.price + "&hour=" + offerride.hour);
 }
 
 function postRequest(postUrl, userData, nextPageUrl) {
@@ -66,7 +82,8 @@ function postRequest(postUrl, userData, nextPageUrl) {
 
     response.error(function() {})
 }
-function getbookedrides(){
+
+function getbookedrides() {
     $("#inbookings").html(Cookies.get("name"));
     var userObj = {
         "userId": Cookies.get("user_id"),
@@ -90,8 +107,8 @@ function postBookedRequest(postUrl, userData) {
 
     response.error(function() {})
 }
-function displayBookedRides(result)
-{   
+
+function displayBookedRides(result) {
     $("#pastbooking").html("");
     $("#upcomingbooking").html("");
     var today = new Date();
@@ -106,33 +123,35 @@ function displayBookedRides(result)
         var hour = result.rides[len].hour;
 
         if (month > mm) {
-            $("#upcomingboking").append("<div class = 'col-md-8 col-md-offset-1' style = 'border : dimgray 0.5px solid; position: relative; top: 3em; margin: 2em;padding: 1em;'> <span id='block-span'>Your trip with <strong>" + result.rides[len].name + "</strong> on <strong> " + result.rides[len].date + "</strong>  </span><span id='block-span'>Paid : <strong>" + result.rides[len].price +"</strong></span><span> " + result.rides[len].source +"</span><span> <i class='fa fa-long-arrow-right' aria-hidden='true'> </i> </span><span>" + result.rides[len].dest +"</span><button type='button' onclick = 'cancelbookedride(" + result.rides[len].rid + ")'class='btn btn-default' style='color: black!important; margin-bottom: 1em; background:gold; position: relative; left: 40%;'>Cancel Ride</button></div>");
+            $("#upcomingboking").append("<div class = 'col-md-8 col-md-offset-1' style = 'border : dimgray 0.5px solid; position: relative; top: 3em; margin: 2em;padding: 1em;'> <span id='block-span'>Your trip with <strong>" + result.rides[len].name + "</strong> on <strong> " + result.rides[len].date + "</strong>  </span><span id='block-span'>Paid : <strong>" + result.rides[len].price + "</strong></span><span> " + result.rides[len].source + "</span><span> <i class='fa fa-long-arrow-right' aria-hidden='true'> </i> </span><span>" + result.rides[len].dest + "</span><button type='button' onclick = 'cancelbookedride(" + result.rides[len].rid + ")'class='btn btn-default' style='color: black!important; margin-bottom: 1em; background:gold; position: relative; left: 40%;'>Cancel Ride</button></div>");
         } else if (month == mm) {
             if (day > dd) {
-                $("#upcomingbooking").append("<div class = 'col-md-8 col-md-offset-1' style = 'border : dimgray 0.5px solid; position: relative; top: 3em; margin: 2em;padding: 1em;'> <span id='block-span'>Your trip with <strong>" + result.rides[len].name + "</strong> on <strong> " + result.rides[len].date + "</strong>  </span><span id='block-span'>Paid : <strong>" + result.rides[len].price +"</strong></span><span> " + result.rides[len].source +"</span><span> <i class='fa fa-long-arrow-right' aria-hidden='true'> </i> </span><span>" + result.rides[len].dest +"</span><button type='button' onclick = 'cancelbookedride(" + result.rides[len].rid + ")' class='btn btn-default' style='color: black!important; margin-bottom: 1em; background:gold; position: relative; left: 40%;'>Cancel Ride</button></div>");
+                $("#upcomingbooking").append("<div class = 'col-md-8 col-md-offset-1' style = 'border : dimgray 0.5px solid; position: relative; top: 3em; margin: 2em;padding: 1em;'> <span id='block-span'>Your trip with <strong>" + result.rides[len].name + "</strong> on <strong> " + result.rides[len].date + "</strong>  </span><span id='block-span'>Paid : <strong>" + result.rides[len].price + "</strong></span><span> " + result.rides[len].source + "</span><span> <i class='fa fa-long-arrow-right' aria-hidden='true'> </i> </span><span>" + result.rides[len].dest + "</span><button type='button' onclick = 'cancelbookedride(" + result.rides[len].rid + ")' class='btn btn-default' style='color: black!important; margin-bottom: 1em; background:gold; position: relative; left: 40%;'>Cancel Ride</button></div>");
             } else if (day < dd) {
-                $("#pastbooking").append("<div class = 'col-md-8 col-md-offset-1' style = 'border : dimgray 0.5px solid; position: relative; top: 3em; margin: 2em;padding: 1em;'> <span id='block-span'>Your trip with <strong>" + result.rides[len].name + "</strong> on <strong> " + result.rides[len].date + "</strong>  </span><span id='block-span'>Paid : <strong>" + result.rides[len].price +"</strong></span><span> " + result.rides[len].source +"</span><span> <i class='fa fa-long-arrow-right' aria-hidden='true'> </i> </span><span>" + result.rides[len].dest +"</span></div>");
+                $("#pastbooking").append("<div class = 'col-md-8 col-md-offset-1' style = 'border : dimgray 0.5px solid; position: relative; top: 3em; margin: 2em;padding: 1em;'> <span id='block-span'>Your trip with <strong>" + result.rides[len].name + "</strong> on <strong> " + result.rides[len].date + "</strong>  </span><span id='block-span'>Paid : <strong>" + result.rides[len].price + "</strong></span><span> " + result.rides[len].source + "</span><span> <i class='fa fa-long-arrow-right' aria-hidden='true'> </i> </span><span>" + result.rides[len].dest + "</span></div>");
             } else {
                 if (hour > hh) {
-                    $("#upcomingbooking").append("<div class = 'col-md-8 col-md-offset-1' style = 'border : dimgray 0.5px solid; position: relative; top: 3em; margin: 2em;padding: 1em;'> <span id='block-span'>Your trip with <strong>" + result.rides[len].name + "</strong> on <strong> " + result.rides[len].date + "</strong>  </span><span id='block-span'>Paid : <strong>" + result.rides[len].price +"</strong></span><span> " + result.rides[len].source +"</span><span> <i class='fa fa-long-arrow-right' aria-hidden='true'> </i> </span><span>" + result.rides[len].dest +"</span><button type='button' onclick = 'cancelbookedride(" + result.rides[len].rid + ")' class='btn btn-default' style='color: black!important; margin-bottom: 1em; background:gold; position: relative; left: 40%;'>Cancel Ride</button></div>");
+                    $("#upcomingbooking").append("<div class = 'col-md-8 col-md-offset-1' style = 'border : dimgray 0.5px solid; position: relative; top: 3em; margin: 2em;padding: 1em;'> <span id='block-span'>Your trip with <strong>" + result.rides[len].name + "</strong> on <strong> " + result.rides[len].date + "</strong>  </span><span id='block-span'>Paid : <strong>" + result.rides[len].price + "</strong></span><span> " + result.rides[len].source + "</span><span> <i class='fa fa-long-arrow-right' aria-hidden='true'> </i> </span><span>" + result.rides[len].dest + "</span><button type='button' onclick = 'cancelbookedride(" + result.rides[len].rid + ")' class='btn btn-default' style='color: black!important; margin-bottom: 1em; background:gold; position: relative; left: 40%;'>Cancel Ride</button></div>");
                 } else if (hour == hh) {
-                    $("#upcomingbooking").append("<div class = 'col-md-8 col-md-offset-1' style = 'border : dimgray 0.5px solid; position: relative; top: 3em; margin: 2em;padding: 1em;'> <span id='block-span'>Your trip with <strong>" + result.rides[len].name + "</strong> on <strong> " + result.rides[len].date + "</strong>  </span><span id='block-span'>Paid : <strong>" + result.rides[len].price +"</strong></span><span> " + result.rides[len].source +"</span><span> <i class='fa fa-long-arrow-right' aria-hidden='true'> </i> </span><span>" + result.rides[len].dest +"</span><button type='button' onclick = 'cancelbookedride(" + result.rides[len].rid + ")' class='btn btn-default' style='color: black!important; margin-bottom: 1em; background:gold; position: relative; left: 40%;'>Cancel Ride</button></div>");
+                    $("#upcomingbooking").append("<div class = 'col-md-8 col-md-offset-1' style = 'border : dimgray 0.5px solid; position: relative; top: 3em; margin: 2em;padding: 1em;'> <span id='block-span'>Your trip with <strong>" + result.rides[len].name + "</strong> on <strong> " + result.rides[len].date + "</strong>  </span><span id='block-span'>Paid : <strong>" + result.rides[len].price + "</strong></span><span> " + result.rides[len].source + "</span><span> <i class='fa fa-long-arrow-right' aria-hidden='true'> </i> </span><span>" + result.rides[len].dest + "</span><button type='button' onclick = 'cancelbookedride(" + result.rides[len].rid + ")' class='btn btn-default' style='color: black!important; margin-bottom: 1em; background:gold; position: relative; left: 40%;'>Cancel Ride</button></div>");
                 } else {
-                    $("#pastbooking").append("<div class = 'col-md-8 col-md-offset-1' style = 'border : dimgray 0.5px solid; position: relative; top: 3em; margin: 2em;padding: 1em;'> <span id='block-span'>Your trip with <strong>" + result.rides[len].name + "</strong> on <strong> " + result.rides[len].date + "</strong>  </span><span id='block-span'>Paid : <strong>" + result.rides[len].price +"</strong></span><span> " + result.rides[len].source +"</span><span> <i class='fa fa-long-arrow-right' aria-hidden='true'> </i> </span><span>" + result.rides[len].dest +"</span></div>");
+                    $("#pastbooking").append("<div class = 'col-md-8 col-md-offset-1' style = 'border : dimgray 0.5px solid; position: relative; top: 3em; margin: 2em;padding: 1em;'> <span id='block-span'>Your trip with <strong>" + result.rides[len].name + "</strong> on <strong> " + result.rides[len].date + "</strong>  </span><span id='block-span'>Paid : <strong>" + result.rides[len].price + "</strong></span><span> " + result.rides[len].source + "</span><span> <i class='fa fa-long-arrow-right' aria-hidden='true'> </i> </span><span>" + result.rides[len].dest + "</span></div>");
                 }
             }
         } else
-            $("#pastbooking").append("<div class = 'col-md-8 col-md-offset-1' style = 'border : dimgray 0.5px solid; position: relative; top: 3em; margin: 2em;padding: 1em;'> <span id='block-span'>Your trip with <strong>" + result.rides[len].name + "</strong> on <strong> " + result.rides[len].date + "</strong>  </span><span id='block-span'>Paid : <strong>" + result.rides[len].price +"</strong></span><span> " + result.rides[len].source +"</span><span> <i class='fa fa-long-arrow-right' aria-hidden='true'> </i> </span><span>" + result.rides[len].dest +"</span></div>");
+            $("#pastbooking").append("<div class = 'col-md-8 col-md-offset-1' style = 'border : dimgray 0.5px solid; position: relative; top: 3em; margin: 2em;padding: 1em;'> <span id='block-span'>Your trip with <strong>" + result.rides[len].name + "</strong> on <strong> " + result.rides[len].date + "</strong>  </span><span id='block-span'>Paid : <strong>" + result.rides[len].price + "</strong></span><span> " + result.rides[len].source + "</span><span> <i class='fa fa-long-arrow-right' aria-hidden='true'> </i> </span><span>" + result.rides[len].dest + "</span></div>");
     }
 }
-function cancelbookedride(rid){
+
+function cancelbookedride(rid) {
     var bbj = {
         "userId": Cookies.get("user_id"),
         "userMail": Cookies.get("email"),
-        "rid": rid 
+        "rid": rid
     };
     postCancelRequest("http://localhost:5000/unbook", bbj);
 }
+
 function postCancelRequest(postUrl, userData) {
     var response = $.ajax({
         type: "POST",
@@ -147,14 +166,16 @@ function postCancelRequest(postUrl, userData) {
 
     response.error(function() {})
 }
-function cancelofferedride(rid){
+
+function cancelofferedride(rid) {
     var bbj = {
         "userId": Cookies.get("user_id"),
         "userMail": Cookies.get("email"),
-        "rid": rid 
+        "rid": rid
     };
     postCancelOfferRequest("http://localhost:5000/removeoffer", bbj);
 }
+
 function postCancelOfferRequest(postUrl, userData) {
     var response = $.ajax({
         type: "POST",
@@ -169,7 +190,8 @@ function postCancelOfferRequest(postUrl, userData) {
 
     response.error(function() {})
 }
-function subscribe(){
+
+function subscribe() {
     var emailField = document.getElementById("pemail");
     var email = emailField.value;
     var emailobj = {
@@ -179,20 +201,22 @@ function subscribe(){
     };
     postRequest("http://localhost:5000/subscribe", emailobj, "#");
 }
-function displaybooking(){
+
+function displaybooking() {
     var params = (new URL(document.location)).searchParams;
     var source = params.get("src");
     var dest = params.get("dest");
     var date = params.get("date");
     var seats = params.get("seats");
-    var hour = params.get("hour"); 
-    
+    var hour = params.get("hour");
+
     $("#frominbs").html(source);
     $("#toinbs").html(dest);
     $("#dateinbs").html(date);
     $("#hourinbs").html(hour);
     $("#seatsinbs").html(seats);
 }
+
 function postOfferRequest(postUrl, userData, nextPageUrl) {
     var response = $.ajax({
         type: "POST",
@@ -240,9 +264,8 @@ function displayFindRides(result) {
     for (var len = 0; len < result.rides.length; len++)
         $("#found").append("<tr><td>" + result.rides[len].source + "</td><td>" + result.rides[len].dest + "</td><td>" + result.rides[len].price + "  </td><td> " + result.ride + "</td><td> <button class = 'btn btn-default' style='color: black; background-color: gold;' onclick='book(" + len + ")'>BOOK </button></td></tr>");
 }
- 
-function book(index)
-{
+
+function book(index) {
     var required = data.rides[index];
     var bookride = {
         "userId": Cookies.get("user_id"),
@@ -251,6 +274,7 @@ function book(index)
     };
     postOfferRequest("http://localhost:5000/book", bookride, "../user/booking-successful.html?src=" + required.source + "&dest=" + required.dest + "&date=" + required.date + "&seats=" + required.seats);
 }
+
 function displayOfferedRides(result) {
     $("#past").html("");
     $("#upcoming").html("");
@@ -320,6 +344,7 @@ function postUserDataRequest(postUrl, userData, nextPageUrl) {
 
     response.error(function() {})
 }
+
 function getDataRequest(postUrl) {
     var response = $.ajax({
         type: "GET",
@@ -335,6 +360,7 @@ function getDataRequest(postUrl) {
 
     response.error(function() {})
 }
+
 function getUserData() {
     var data = {
         "userId": Cookies.get("user_id"),
@@ -342,13 +368,15 @@ function getUserData() {
     }
     postUserDataRequest("http://localhost:5000/profile", data, "");
 }
-function displayUserData(result){
-   $("#nameinnavbar").html(result.userName);
-   $("#aname").html(result.userName);
-   $("#aemail").html(result.userMail);
-   $("#aphone").html(result.userMob);
-   $("#adob").html(result.userDoj);
+
+function displayUserData(result) {
+    $("#nameinnavbar").html(result.userName);
+    $("#aname").html(result.userName);
+    $("#aemail").html(result.userMail);
+    $("#aphone").html(result.userMob);
+    $("#adob").html(result.userDoj);
 }
+
 function addvehicledetails() {
     if (document.getElementById('agree').checked) {
         var regField = document.getElementById("reg");
@@ -383,61 +411,76 @@ function postUserDataRequest(postUrl, userData, nextPageUrl) {
     response.error(function() {})
 }
 
+function letsgo() {
+    var sourceField = document.getElementById("source");
+    var source = sourceField.value;
+    var destField = document.getElementById("dest");
+    var dest = destField.value;
+    var dateField = document.getElementById("date");
+    var date = dateField.value;
+    var hourField = document.getElementById("hour");
+    var hour = hourField.value;
+    location.href = "app/components/Traveller/find-a-ride.html?src=" + source + "&dest=" + dest + "&date=" + date + "&hour=" + hour;
+}
+
 /*********************************************************************/
-function checkSource(field){
-    if (field.value.length  == 0) 
-    {
+function checkSource(field) {
+    if (field.value.length == 0) {
         document.getElementById("sourceX").innerHTML = "Required Field";
         return false;
-    }else{
+    } else {
         document.getElementById("sourceX").innerHTML = "";
         return true;
     }
 }
 
-function checkDest(field){
-    if (field.value.length  == 0) 
-    {
+function checkDest(field) {
+    if (field.value.length == 0) {
         document.getElementById("destX").innerHTML = "Required Field";
         return false;
-    }else{
+    } else {
         document.getElementById("destX").innerHTML = "";
         return true;
     }
 }
 
-function rideFindValidate(){
+function rideFindValidate() {
     var x = checkSource(document.getElementById("source"));
     x = x & checkDest(document.getElementById("dest"));
-    if(x == true){
+    if (x == true) {
         return true;
-    }else{
+    } else {
         return false
     }
 }
 
-function offerRideValidate(){
-    var x = checkSource(document.getElementById("source"));
-    x = x & checkDest(document.getElementById("dest"));
-    if(x == true){
-        var flag = 0;
-        var seats = document.getElementById("seats");
-        var price = document.getElementById("price");
-        if(seats.value.length == 0){
-            document.getElementById("seatsX").innerHTML = "Required Field";
-            flag = 1;
+function offerRideValidate() {
+    if (!Cookies.get("email")) {
+        alert("Please login to offer a ride");
+        location.href = "../Login/login.html";
+    } else {
+        var x = checkSource(document.getElementById("source"));
+        x = x & checkDest(document.getElementById("dest"));
+        if (x == true) {
+            var flag = 0;
+            var seats = document.getElementById("seats");
+            var price = document.getElementById("price");
+            if (seats.value.length == 0) {
+                document.getElementById("seatsX").innerHTML = "Required Field";
+                flag = 1;
+            }
+            if (price.value.length == 0) {
+                document.getElementById("priceX").innerHTML = "Required Field";
+                flag = 1;
+            }
+            if (flag = 1) {
+                return false;
+            } else {
+                return true;
+            }
+        } else {
+            return false
         }
-        if(price.value.length == 0){
-            document.getElementById("priceX").innerHTML = "Required Field";
-            flag = 1;
-        }
-        if(flag = 1){
-            return false;
-        }else{
-            return true;
-        }
-    }else{
-        return false
     }
 }
 /*********************************************************************/
