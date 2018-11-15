@@ -54,7 +54,7 @@ function verify() {
         "otp": otp
     };
 
-    postRequest("http://127.0.0.1:5000/verify", user, "/verification.html");
+    postRequest("http://127.0.0.1:5000/verify", user, "/index.html");
 }
 
 function postRequest(postUrl, userData, nextPageUrl) {

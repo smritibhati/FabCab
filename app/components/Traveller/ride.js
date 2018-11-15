@@ -202,9 +202,7 @@ function postOfferRequest(postUrl, userData, nextPageUrl) {
         success: function(result) {
             // displayFindRides(result)
             location.href = nextPageUrl;
-
         }
-
     });
 
     response.error(function() {})
@@ -238,7 +236,7 @@ function postOfferedRequest(postUrl, userData) {
 function displayFindRides(result) {
     $("#found").innerHtml = "";
     for (var len = 0; len < result.rides.length; len++)
-        $("#found").append("<tr><td>" + result.rides[len].source + "</td><td>" + result.rides[len].dest + "</td><td>" + result.rides[len].price + "  </td><td> " + result.ride + "</td><td> <button class = 'btn btn-default' style='color: black; background-color: gold;' onclick='book(" + len + ")'>BOOK </button></td></tr>");
+        $("#found").append("<tr><td>" + result.rides[len].source + "</td><td>" + result.rides[len].dest + "</td><td>" + result.rides[len].name + "  </td><td> " + result.rides[len].price + "</td><td> <button class = 'btn btn-default' style='color: black; background-color: gold;' onclick='book(" + len + ")'>BOOK </button></td></tr>");
 }
  
 function book(index)
@@ -266,23 +264,23 @@ function displayOfferedRides(result) {
         var hour = result.rides[len].hour;
 
         if (month > mm) {
-            $("#upcoming").append("<div class = 'col-md-8 col-md-offset-1' style = 'border : dimgray 0.5px solid; position: relative; top: 3em; margin: 2em;padding: 1em;'> <span> " + result.rides[len].source + "</span> <span> <i class='fa fa-long-arrow-right' aria-hidden='true'> </i> </span><span>" + result.rides[len].dest + "</span><span  id='block-span'> At:" + result.rides[len].hour + "  </span><span id='block-span'>Price : <strong> " + result.rides[len].price + " </strong></span></div>");
+            $("#upcoming").append("<div class = 'col-md-8 col-md-offset-1' style = 'border : dimgray 0.5px solid; position: relative; top: 3em; margin: 2em;padding: 1em;'> <span><strong> " + result.rides[len].source + "</strong></span> <span> <i class='fa fa-long-arrow-right fa-2x' style='color:black; position:relative; top: 0.15em;' aria-hidden='true'> </i> </span><span> <strong>" + result.rides[len].dest + "</strong> </span><span  id='block-span'> <strong> At: </strong> " + result.rides[len].hour + "  </span><span id='block-span'> <strong>Price : </strong> " + result.rides[len].price + " </span></div>");
         } else if (month == mm) {
             if (day > dd) {
-                $("#upcoming").append("<div class = 'col-md-8 col-md-offset-1' style = 'border : dimgray 0.5px solid; position: relative; top: 3em; margin: 2em;padding: 1em;'> <span> " + result.rides[len].source + "</span> <span> <i class='fa fa-long-arrow-right' aria-hidden='true'> </i> </span><span>" + result.rides[len].dest + "</span><span  id='block-span'> At:" + result.rides[len].hour + "  </span><span id='block-span'>Price : <strong> " + result.rides[len].price + " </strong></span> <button type='button' onclick = 'cancelofferedride(" + result.rides[len].rid + ")' class='btn btn-default' style='color: black!important; margin-bottom: 1em; background:gold; position: relative; left: 40%;'>Cancel Ride</button></div>");
+                $("#upcoming").append("<div class = 'col-md-8 col-md-offset-1' style = 'border : dimgray 0.5px solid; position: relative; top: 3em; margin: 2em;padding: 1em;'> <span><strong> " + result.rides[len].source + "</strong></span> <span> <i class='fa fa-long-arrow-right fa-2x' style='color:black; position:relative; top: 0.15em;' aria-hidden='true'> </i> </span><span> <strong>" + result.rides[len].dest + "</strong> </span><span  id='block-span'> <strong> At: </strong> " + result.rides[len].hour + "  </span><span id='block-span'> <strong>Price : </strong> " + result.rides[len].price + " </span></div>");
             } else if (day < dd) {
-                $("#past").append("<div class = 'col-md-8 col-md-offset-1' style = 'border : dimgray 0.5px solid; position: relative; top: 3em; margin: 2em;padding: 1em;'> <span> " + result.rides[len].source + "</span> <span> <i class='fa fa-long-arrow-right' aria-hidden='true'> </i> </span><span>" + result.rides[len].dest + "</span><span  id='block-span'> At:" + result.rides[len].hour + "  </span><span id='block-span'>Price : <strong> " + result.rides[len].price + " </strong></span></div>");
+                $("#past").append("<div class = 'col-md-8 col-md-offset-1' style = 'border : dimgray 0.5px solid; position: relative; top: 3em; margin: 2em;padding: 1em;'> <span> " + result.rides[len].source + "</span> <span> <i class='fa fa-long-arrow-right' aria-hidden='true'> </i> </span><span>" + result.rides[len].dest + "</span><span  id='block-span'> <label> At: </label>" + result.rides[len].hour + "  </span><span id='block-span'>Price : <strong> " + result.rides[len].price + " </strong></span></div>");
             } else {
                 if (hour > hh) {
-                    $("#upcoming").append("<div class = 'col-md-8 col-md-offset-1' style = 'border : dimgray 0.5px solid; position: relative; top: 3em; margin: 2em;padding: 1em;'> <span> " + result.rides[len].source + "</span> <span> <i class='fa fa-long-arrow-right' aria-hidden='true'> </i> </span><span>" + result.rides[len].dest + "</span><span  id='block-span'> At:" + result.rides[len].hour + "  </span><span id='block-span'>Price : <strong> " + result.rides[len].price + " </strong></span><button type='button' onclick = 'cancelofferedride(" + result.rides[len].rid + ")' class='btn btn-default' style='color: black!important; margin-bottom: 1em; background:gold; position: relative; left: 40%;'>Cancel Ride</button></div>");
+                    $("#upcoming").append("<div class = 'col-md-8 col-md-offset-1' style = 'border : dimgray 0.5px solid; position: relative; top: 3em; margin: 2em;padding: 1em;'> <span><strong> " + result.rides[len].source + "</strong></span> <span> <i class='fa fa-long-arrow-right fa-2x' style='color:black; position:relative; top: 0.15em;' aria-hidden='true'> </i> </span><span> <strong>" + result.rides[len].dest + "</strong> </span><span  id='block-span'> <strong> At: </strong> " + result.rides[len].hour + "  </span><span id='block-span'> <strong>Price : </strong> " + result.rides[len].price + " </span></div>");
                 } else if (hour == hh) {
-                    $("#upcoming").append("<div class = 'col-md-8 col-md-offset-1' style = 'border : dimgray 0.5px solid; position: relative; top: 3em; margin: 2em;padding: 1em;'> <span> " + result.rides[len].source + "</span> <span> <i class='fa fa-long-arrow-right' aria-hidden='true'> </i> </span><span>" + result.rides[len].dest + "</span><span  id='block-span'> At:" + result.rides[len].hour + "  </span><span id='block-span'>Price : <strong> " + result.rides[len].price + " </strong></span><button type='button' onclick = 'cancelofferedride(" + result.rides[len].rid + ")' class='btn btn-default' style='color: black!important; margin-bottom: 1em; background:gold; position: relative; left: 40%;'>Cancel Ride</button></div>");
+                    $("#upcoming").append("<div class = 'col-md-8 col-md-offset-1' style = 'border : dimgray 0.5px solid; position: relative; top: 3em; margin: 2em;padding: 1em;'> <span><strong> " + result.rides[len].source + "</strong></span> <span> <i class='fa fa-long-arrow-right fa-2x' style='color:black; position:relative; top: 0.15em;' aria-hidden='true'> </i> </span><span> <strong>" + result.rides[len].dest + "</strong> </span><span  id='block-span'> <strong> At: </strong> " + result.rides[len].hour + "  </span><span id='block-span'> <strong>Price : </strong> " + result.rides[len].price + " </span></div>");
                 } else {
-                    $("#past").append("<div class = 'col-md-8 col-md-offset-1' style = 'border : dimgray 0.5px solid; position: relative; top: 3em; margin: 2em;padding: 1em;'> <span> " + result.rides[len].source + "</span> <span> <i class='fa fa-long-arrow-right' aria-hidden='true'> </i> </span><span>" + result.rides[len].dest + "</span><span  id='block-span'> At:" + result.rides[len].hour + "  </span><span id='block-span'>Price : <strong> " + result.rides[len].price + " </strong></span></div>");
+                    $("#past").append("<div class = 'col-md-8 col-md-offset-1' style = 'border : dimgray 0.5px solid; position: relative; top: 3em; margin: 2em;padding: 1em;'> <span> " + result.rides[len].source + "</span> <span> <i class='fa fa-long-arrow-right' aria-hidden='true'> </i> </span><span>" + result.rides[len].dest + "</span><span  id='block-span'><label> At: </label> " + result.rides[len].hour + "  </span><span id='block-span'>Price : <strong> " + result.rides[len].price + " </strong></span></div>");
                 }
             }
         } else
-            $("#past").append("<div class = 'col-md-8 col-md-offset-1' style = 'border : dimgray 0.5px solid; position: relative; top: 3em; margin: 2em;padding: 1em;'> <span> " + result.rides[len].source + "</span> <span> <i class='fa fa-long-arrow-right' aria-hidden='true'> </i> </span><span>" + result.rides[len].dest + "</span><span  id='block-span'> At:" + result.rides[len].hour + "  </span><span id='block-span'>Price : <strong> " + result.rides[len].price + " </strong></span></div>");
+            $("#past").append("<div class = 'col-md-8 col-md-offset-1' style = 'border : dimgray 0.5px solid; position: relative; top: 3em; margin: 2em;padding: 1em;'> <span> " + result.rides[len].source + "</span> <span> <i class='fa fa-long-arrow-right' aria-hidden='true'> </i> </span><span>" + result.rides[len].dest + "</span><span  id='block-span'> <label> At: </label>" + result.rides[len].hour + "  </span><span id='block-span'>Price : <strong> " + result.rides[len].price + " </strong></span></div>");
     }
 }
 
