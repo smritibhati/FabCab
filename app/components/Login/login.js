@@ -72,126 +72,120 @@ function postRequest(postUrl, userData, nextPageUrl) {
 }
 
 /*************************************************************************/
-function reqField(field){
-    if (field.value.length  == 0) 
-    {
+function reqField(field) {
+    if (field.value.length == 0) {
         document.getElementById("reqField").innerHTML = "Required Field";
         return false;
-    }else{
+    } else {
         document.getElementById("reqField").innerHTML = "";
         return true;
     }
 }
 
 
-function nameValidate(field){
-    if (field.value.length  == 0) 
-    {
+function nameValidate(field) {
+    if (field.value.length == 0) {
         document.getElementById("nameError").innerHTML = "Required Field";
         return false;
-    }else{
+    } else {
         document.getElementById("nameError").innerHTML = "";
         return true;
     }
 }
 
-function emailValidate(emailField){
+function emailValidate(emailField) {
     var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
-    if(emailField.value.length ==0){
+    if (emailField.value.length == 0) {
         document.getElementById("emailError").innerHTML = "Required Field";
         return false;
-    }else if (reg.test(emailField.value) == false) 
-    {
+    } else if (reg.test(emailField.value) == false) {
         document.getElementById("emailError").innerHTML = "Enter a valid Email";
         return false;
-    }else{
+    } else {
         document.getElementById("emailError").innerHTML = "";
         return true;
     }
 }
 
-function numberValidate(mobileField){
+function numberValidate(mobileField) {
     var reg = /^[6789][0-9]{9}$/;
-    if(mobileField.value.length ==0){
+    if (mobileField.value.length == 0) {
         document.getElementById("mobileError").innerHTML = "Required Field";
         return false;
-    }else if (reg.test(mobileField.value) == false) 
-    {
+    } else if (reg.test(mobileField.value) == false) {
         document.getElementById("mobileError").innerHTML = "Enter a valid Number";
         return false;
-    }else{
+    } else {
         document.getElementById("mobileError").innerHTML = "";
         return true;
     }
 }
 
-function passwordValidate(passField){
-    var reg =/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,20}$/;
-    if(passField.value.length ==0){
+function passwordValidate(passField) {
+    var reg = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,20}$/;
+    if (passField.value.length == 0) {
         document.getElementById("passError1").innerHTML = "Required Field";
         return false;
-    }else if (reg.test(passField.value) == false) 
-    {
+    } else if (reg.test(passField.value) == false) {
         document.getElementById("passError1").innerHTML = "Password must contain 8 characters, 1 uppercase, 1 lowercase, 1 special character and 1 numeric";
         return false;
-    }else{
+    } else {
         document.getElementById("passError1").innerHTML = "";
         return true;
     }
 }
 
-function matchPasswords(passField){
+function matchPasswords(passField) {
     var prev = document.getElementById("user-pass");
-    if(passField.value.length ==0){
+    if (passField.value.length == 0) {
         document.getElementById("passError2").innerHTML = "Required Field";
         return false;
-    }else if (passField.value != prev.value) 
-    {
+    } else if (passField.value != prev.value) {
         document.getElementById("passError2").innerHTML = "The passwords do not match";
         return false;
-    }else{
+    } else {
         document.getElementById("passError2").innerHTML = "";
         return true;
     }
 }
 
-function validateSignup(){
+function validateSignup() {
     var x = emailValidate(document.getElementById("user-mail"));
     x = x & nameValidate(document.getElementById("user-name"));
     x = x & numberValidate(document.getElementById("user-mob"));
     x = x & passwordValidate(document.getElementById("user-pass"));
     x = x & matchPasswords(document.getElementById("confirm-pass"));
-    if(x == true)
+    if (x == true)
         return true;
     else
         return false;
 }
 
-function validateLogin(){
-    if(emailValidate(document.getElementById("user-mail")) == true)
+function validateLogin() {
+    if (emailValidate(document.getElementById("user-mail")) == true)
         return true;
     else
         return false;
 }
 
-function checkForgotPassword(){
-    if(emailValidate(document.getElementById("user-mail")) == true)
+function checkForgotPassword() {
+    if (emailValidate(document.getElementById("user-mail")) == true)
         return true;
     else
         return false;
 }
 
-function passChangeValidate(){
+function passChangeValidate() {
     var x = passwordValidate(document.getElementById("current"));
     x = x & passwordValidate(document.getElementById("user-pass"));
     x = x & passwordValidate(document.getElementById("confirm-pass"));
-    if(x == true){
+    if (x == true) {
         return true;
-    }else{
+    } else {
         alert("Invalid Entries");
         return false;
     }
-        
+
 }
 /*************************************************************************/
 function postLoginRequest(postUrl, userData, nextPageUrl) {
@@ -201,8 +195,12 @@ function postLoginRequest(postUrl, userData, nextPageUrl) {
         url: postUrl,
         data: JSON.stringify(userData),
         success: function(result) {
-            Cookies.set("email", userData["user-mail"]);
-            location.href = nextPageUrl;
+            if (result.status == "login-success") {
+                Cookies.set("email", userData["user-mail"]);
+                location.href = nextPageUrl;
+            } else {
+                alert("Login Failed. Please try again.")
+            }
         }
     });
 
