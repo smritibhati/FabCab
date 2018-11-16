@@ -19,18 +19,18 @@
         <div class="inner">
             <a href="index.html" class="logo"><strong>FabCab</strong> </a>
             <nav id="nav">
-                    <a href="#">
-                            <div class="dropdown">
-                                <div class="dropbtn" id="nameinnavbaronindex"> </div>
-                                <div class="dropdown-content">
-                                    <a href="app/components/user/account.html">Profile</a>
-                                    <a href="app/components/user/bookings.html">Bookings</a>
-                                    <a href="app/components/user/offeredrides.html">Offered Rides</a>
-                                    <a href="app/components/Login/changepassword.html">Change Password</a>
-                                    <a onclick="signOut()">Sign out</a>
-                                </div>
-                            </div>
-                        </a>
+                <a href="#">
+                    <div class="dropdown">
+                        <div class="dropbtn" id="nameinnavbaronindex"> </div>
+                        <div class="dropdown-content">
+                            <a href="app/components/user/account.html">Profile</a>
+                            <a href="app/components/user/bookings.html">Bookings</a>
+                            <a href="app/components/user/offeredrides.html">Offered Rides</a>
+                            <a href="app/components/Login/changepassword.html">Change Password</a>
+                            <a onclick="signOut()">Sign out</a>
+                        </div>
+                    </div>
+                </a>
                 <a href="app/components/Traveller/find-a-ride.html">Find a Ride</a>
                 <a href="app/components/Traveller/offerr-ride.html">Offer a Ride</a>
                 <a href="app/components/Login/login.html" id="login">Login</a>
@@ -59,7 +59,7 @@
                                 <input type="text" name="dest" style="color: white;" id="dest" value="" placeholder="Going To" required/>
                             </div>
                             <div>
-                                <input type="text" style="display: inline!important; width: 78%!important; color: white" id="date" placeholder="Date" />
+                                <input type="text" name="demo" style="display: inline!important; width: 78%!important; color: white" id="date" placeholder="Date" />
                                 <select id="hour" style="color: white; width:15%; display: inline!important;">
                                         <option style="color: black;" value="">HH</option>
                                     </select>
@@ -141,7 +141,7 @@
                     <i class="fa fa fa-bullhorn fa-5x" aria-hidden="true" style="color:white;"></i>
                     <h2 style="color:white; font-weight: 800;">OFFER</h2>
                     <h3 style="color: grey; font-weight: 600">
-                        Post your ride to offer empty seats. Search rides on your way and book seats. 
+                        Post your ride to offer empty seats. Search rides on your way and book seats.
                     </h3>
                 </div>
                 <div class="col-md-4" style="background-color; border-radius: 5px; height: 20em;">
@@ -164,10 +164,11 @@
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/skel.min.js"></script>
     <script src="assets/js/util.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script src="DatePickerX-master/src/js/DatePickerX.js"></script>
+
     <script src="assets/js/main.js"></script>
     <script src="app/components/Traveller/ride.js"></script>
-    <script src="DatePickerX-master/src/js/DatePickerX.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
 
     <script>
         $(document).ready(function() {

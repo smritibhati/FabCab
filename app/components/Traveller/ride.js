@@ -307,12 +307,13 @@ function getProfileData() {
 
 function book(index) {
     var required = data.rides[index];
+    var seats = document.getElementById("seats").value;
     var bookride = {
         "userId": Cookies.get("user_id"),
         "userMail": Cookies.get("email"),
         "rid": required.rid
     };
-    postOfferRequest("http://localhost:5000/book", bookride, "../user/booking-successful.html?src=" + required.source + "&dest=" + required.dest + "&date=" + required.date + "&seats=" + required.seats);
+    postOfferRequest("http://localhost:5000/book", bookride, "../user/booking-successful.html?src=" + required.source + "&dest=" + required.dest + "&date=" + required.date + "&seats=" + seats + "&hour=" + required.hour);
 }
 
 function displayOfferedRides(result) {
