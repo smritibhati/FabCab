@@ -88,9 +88,9 @@
     <script>
         $(document).ready(function() {
         
-            if (!Cookies.get("user_id")){
+            if (Cookies.get("user_id")==null){
                 alert("Oops! You are not logged in.")
-                location.href="../Login/login.html";
+                location.href="/app/components/Login/login.html";
             }
             getData();
 

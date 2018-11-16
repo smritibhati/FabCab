@@ -50,7 +50,7 @@
                     <img src="../../../images/profile.png" style="height:20em ;width:15em" />
                 </div>
                 <div class="col-md-8" style="text-align:left">
-                    <h2 id="nameinheading"> </h2>
+                    <h2 id="nameinheadinginprofile"> </h2>
                     <button type="button" class="btn btn-success" style="color: white!important;" onclick="subscribe()">Subscribe</button>
                 </div>
             </div>
@@ -77,10 +77,7 @@
                                 <td id="pemail"> </td>
                             </tr>
 
-                            <tr>
-                                <td> <label for="gender">Gender </label></td>
-                                <td id="pgender"> </td>
-                            </tr>
+                
                             <tr>
                                 <td> <label for="phone">Phone </label></td>
                                 <td id="pphone"> </td>
@@ -123,6 +120,10 @@
             $(".nav-tabs a").click(function() {
                 $(this).tab('show');
             });
+            if(Cookies.get("name")==null){
+                alert("Oops! You are not logged in. ");
+                location.href="/app/components/Login/login.html"
+            }
             getProfileData();
         });
     </script>

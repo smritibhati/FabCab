@@ -114,13 +114,16 @@
     <script src="../../../assets/js/main.js"></script>
     <script src="ride.js"></script>
     <script src="../user/user.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+
     <script src="../../../DatePickerX-master/src/js/DatePickerX.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
     <script>
         $(document).ready(function() {
-            if (!Cookies.get("user_id")){
+            
+            if (Cookies.get("user_id")==null){
                 alert("Oops! You are not logged in.")
-                location.href="../Login/login.html";
+                location.href="/app/components/Login/login.html";
             }
         });
     </script>

@@ -71,11 +71,6 @@
                                         <td> Email </td>
                                         <td id="aemail"> </td>
                                     </tr>
-
-                                    <tr>
-                                        <td> Gender</td>
-                                        <td id="agender"> </td>
-                                    </tr>
                                     <tr>
                                         <td> Phone</td>
                                         <td id="aphone"> </td>
@@ -118,8 +113,14 @@
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
     <script src="../Traveller/ride.js"></script>
     <script src="user.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+
     <script>
         $(document).ready(function() {
+            // if(Cookies.get("name")==null){
+            //     alert("Oops! You are not logged in. ");
+            //     location.href="/app/components/Login/login.html"
+            // }
             $(".nav-tabs a").click(function() {
                 $(this).tab('show');
             });

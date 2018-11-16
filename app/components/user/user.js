@@ -29,5 +29,6 @@ function displayData(data) {
 function signOut() {
     Cookies.remove('email');
     Cookies.remove('user_id');
+    Cookies.remove('name');
     location.href = "../../../index.html";
 }
