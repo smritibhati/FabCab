@@ -219,12 +219,12 @@ function postCancelOfferRequest(postUrl, userData) {
 }
 
 function subscribe() {
-    var emailField = document.getElementById("pemail");
-    var email = emailField.value;
+    var emailField = document.getElementById("pid");
+    var riderId = emailField.innerHTML;
     var emailobj = {
         "userId": Cookies.get("user_id"),
-        "userMail": email,
-        "rider-id": email
+        "userMail": Cookies.get("email"),
+        "rider-id": riderId
     };
     postRequest("http://localhost:5000/subscribe", emailobj, "#");
 }
@@ -436,6 +436,7 @@ function displayUserData(result) {
 }
 
 function displayUserDataforprofile(result) {
+    $("#pid").html(result.userId);
     $("#pname").html(result.userName);
     $("#pemail").html(result.userMail);
     $("#pphone").html(result.userMob);
