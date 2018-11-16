@@ -2,7 +2,7 @@
 var data;
 var sourceProf;
 
-function searchRide(){
+function searchRide() {
     var params = (new URL(document.location)).searchParams;
     if (params.get("src")) {
         var sourceParam = params.get("src");
@@ -25,7 +25,7 @@ function searchRide(){
         var date = dateField.value;
         var hour = hourField.value;
         var seats = seatsField.value;
-        
+
         var findride = {
             "userId": Cookies.get("user_id"),
             "userMail": Cookies.get("email"),
@@ -40,20 +40,20 @@ function searchRide(){
 }
 
 function findaride() {
-    
+
     var source, dest, date, hour, seats;
     var sourceField = document.getElementById("source");
     var destField = document.getElementById("dest");
     var dateField = document.getElementById("date");
     var hourField = document.getElementById("hour");
     var seatsField = document.getElementById("seats");
-     
+
     source = sourceField.value;
     dest = destField.value;
     date = dateField.value;
     hour = hourField.value;
     seats = seatsField.value;
-    
+
     var findride = {
         "userId": Cookies.get("user_id"),
         "userMail": Cookies.get("email"),
@@ -223,8 +223,8 @@ function subscribe() {
     var email = emailField.value;
     var emailobj = {
         "userId": Cookies.get("user_id"),
-        "userMail": Cookies.get("email"),
-        "rider-id": 4
+        "userMail": email,
+        "rider-id": email
     };
     postRequest("http://localhost:5000/subscribe", emailobj, "#");
 }
@@ -286,17 +286,25 @@ function postOfferedRequest(postUrl, userData) {
 
 function displayFindRides(result) {
     $("#found").innerHtml = "";
-    for (var len = 0; len < result.rides.length; len++){
-        var string=result.rides[len].mail;  
-        $("#found").append("<tr><td>" + result.rides[len].source + "</td><td>" + result.rides[len].dest + "</td><td> <a onclick='openprofile(\"" + string + "\")'>" + result.rides[len].name + " </a> </td><td> " + result.rides[len].price + "</td><td> <button class = 'btn btn-default' style='color: black; background-color: gold;' onclick='book(" + len + ")'>BOOK </button></td></tr>");
+    for (var len = 0; len < result.rides.length; len++) {
+        var string = result.rides[len].mail;
+        $("#found").append("<tr><td>" + result.rides[len].source + "</td><td>" + result.rides[len].dest + "</td><td> <a style='cursor: pointer;' onclick='openprofile(\"" + string + "\")'>" + result.rides[len].name + " </a> </td><td> " + result.rides[len].price + "</td><td> <button class = 'btn btn-default' style='color: black; background-color: gold;' onclick='book(" + len + ")'>BOOK </button></td></tr>");
     }
 }
-function openprofile(email){
+
+function openprofile(email) {
+    location.href = "../user/profile.html?email=" + email;
+}
+
+function getProfileData() {
+    var params = (new URL(document.location)).searchParams;
+    var email = params.get("email");
     var userObj = {
-        "userMail" : email
+        "userMail": email
     }
     postUserDataRequestforprofile("http://localhost:5000/profile", userObj, "");
 }
+
 function book(index) {
     var required = data.rides[index];
     var bookride = {
@@ -376,6 +384,7 @@ function postUserDataRequest(postUrl, userData, nextPageUrl) {
 
     response.error(function() {})
 }
+
 function postUserDataRequestforprofile(postUrl, userData, nextPageUrl) {
     var response = $.ajax({
         type: "POST",
@@ -383,7 +392,7 @@ function postUserDataRequestforprofile(postUrl, userData, nextPageUrl) {
         url: postUrl,
         data: JSON.stringify(userData),
         success: function(result) {
-           
+
             displayUserDataforprofile(result)
                 // location.href = nextPageUrl;
 
@@ -425,6 +434,7 @@ function displayUserData(result) {
     $("#aphone").html(result.userMob);
     $("#adob").html(result.userDoj);
 }
+
 function displayUserDataforprofile(result) {
     $("#pname").html(result.userName);
     $("#pemail").html(result.userMail);
