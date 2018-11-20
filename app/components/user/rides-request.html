@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>FabCab</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../../../assets/css/main.css" />
+    <link rel="shortcut icon" href="../../../images/favicon.ico">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="../../../DatePickerX-master/dist/css/DatePickerX.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="inner">
+            <a href="../../../index.html" class="logo"><strong>FabCab</strong> </a>
+            <nav id="nav">
+            </nav>
+            <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+        </div>
+    </header>
+
+    <!-- Banner -->
+    <section id="banner2">
+        <div class="container-fluid">
+            <div class="inner">
+                <header>
+                    <p style="font-size: 2em; text-align:left; color:grey;">Ride Requests<strong id="usernameinheading"> </strong> </p>
+                </header>
+                <br />
+                <div class="row">
+                    <div id="requesttable" style="position: relative; width:50%; ">
+
+                           
+                        
+                    </div>
+
+                </div>
+            </div>
+            <div id = "map" onload="initMap()"></div>
+        </div>
+    </section>
+
+
+    <!-- Three -->
+
+
+    <!-- Scripts -->
+    <script src="../../../assets/js/jquery.min.js"></script>
+    <script src="../../../assets/js/skel.min.js"></script>
+    <script src="../../../assets/js/util.js"></script>
+    <script src="../../../assets/js/main.js"></script>
+    <script src="../Traveller/ride.js"></script>
+    <script src="../../../DatePickerX-master/src/js/DatePickerX.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+
+    <script>
+            $(document).ready(function( ){
+                if(Cookies.get("name")==null){
+                alert("Oops! You are not logged in. ");
+                location.href="/app/components/Login/login.html"
+            }
+                getriderequests();
+        });
+        
+        </script>
+
+</body>
+
+</html>

@@ -1,5 +1,6 @@
 "use strict";
 var data;
+var data2;
 var sourceProf;
 
 function searchRide() {
@@ -101,8 +102,7 @@ function postRequest(postUrl, userData, nextPageUrl) {
         success: function(result) {
             data = result;
             displayFindRides(result)
-                // location.href = nextPageUrl;
-
+                // location.href = nextPageUrl
         }
 
     });
@@ -150,7 +150,7 @@ function displayBookedRides(result) {
         var hour = result.rides[len].hour;
 
         if (month > mm) {
-            $("#upcomingboking").append("<div class = 'col-md-8 col-md-offset-1' style = 'border : dimgray 0.5px solid; position: relative; top: 3em; margin: 2em;padding: 1em;'> <span id='block-span'>Your trip with <strong>" + result.rides[len].name + "</strong> on <strong> " + result.rides[len].date + "</strong>  </span><span id='block-span'>Paid : <strong>" + result.rides[len].price + "</strong></span><span> " + result.rides[len].source + "</span><span> <i class='fa fa-long-arrow-right' aria-hidden='true'> </i> </span><span>" + result.rides[len].dest + "</span><button type='button' onclick = 'cancelbookedride(" + result.rides[len].rid + ")'class='btn btn-default' style='color: black!important; margin-bottom: 1em; background:gold; position: relative; left: 40%;'>Cancel Ride</button></div>");
+            $("#upcomingbooking").append("<div class = 'col-md-8 col-md-offset-1' style = 'border : dimgray 0.5px solid; position: relative; top: 3em; margin: 2em;padding: 1em;'> <span id='block-span'>Your trip with <strong>" + result.rides[len].name + "</strong> on <strong> " + result.rides[len].date + "</strong>  </span><span id='block-span'>Paid : <strong>" + result.rides[len].price + "</strong></span><span> " + result.rides[len].source + "</span><span> <i class='fa fa-long-arrow-right' aria-hidden='true'> </i> </span><span>" + result.rides[len].dest + "</span><button type='button' onclick = 'cancelbookedride(" + result.rides[len].rid + ")'class='btn btn-default' style='color: black!important; margin-bottom: 1em; background:gold; position: relative; left: 40%;'>Cancel Ride</button></div>");
         } else if (month == mm) {
             if (day > dd) {
                 $("#upcomingbooking").append("<div class = 'col-md-8 col-md-offset-1' style = 'border : dimgray 0.5px solid; position: relative; top: 3em; margin: 2em;padding: 1em;'> <span id='block-span'>Your trip with <strong>" + result.rides[len].name + "</strong> on <strong> " + result.rides[len].date + "</strong>  </span><span id='block-span'>Paid : <strong>" + result.rides[len].price + "</strong></span><span> " + result.rides[len].source + "</span><span> <i class='fa fa-long-arrow-right' aria-hidden='true'> </i> </span><span>" + result.rides[len].dest + "</span><button type='button' onclick = 'cancelbookedride(" + result.rides[len].rid + ")' class='btn btn-default' style='color: black!important; margin-bottom: 1em; background:gold; position: relative; left: 40%;'>Cancel Ride</button></div>");
@@ -244,6 +244,16 @@ function displaybooking() {
     $("#seatsinbs").html(seats);
 }
 
+function getriderequests() {
+ //send request to getrequest
+ //for each object in the array display in the table
+ var userObj = {
+    "userId": Cookies.get("user_id"),
+    "userMail": Cookies.get("email")
+ }
+ postRequestRequest("http://localhost:5000/requested", userObj);
+}
+
 function postOfferRequest(postUrl, userData, nextPageUrl) {
     var response = $.ajax({
         type: "POST",
@@ -283,9 +293,25 @@ function postOfferedRequest(postUrl, userData) {
 
     response.error(function() {})
 }
+function postRequestRequest(postUrl, userData) {
+    var response = $.ajax({
+        type: "POST",
+        contentType: "application/json;",
+        url: postUrl,
+        data: JSON.stringify(userData),
+        success: function(result) {
+            console.log("Successfully received offerd rides");
+            data2 = result;
+            displayrequests(result);
+        }
+
+    });
+
+    response.error(function() {})
+}
 
 function displayFindRides(result) {
-    $("#found").innerHtml = "";
+    $("#found").empty();
     for (var len = 0; len < result.rides.length; len++) {
         var string = result.rides[len].mail;
         $("#found").append("<tr><td>" + result.rides[len].source + "</td><td>" + result.rides[len].dest + "</td><td> <a style='cursor: pointer;' onclick='openprofile(\"" + string + "\")'>" + result.rides[len].name + " </a> </td><td> " + result.rides[len].price + "</td><td> <button class = 'btn btn-default' style='color: black; background-color: gold;' onclick='book(" + len + ")'>BOOK </button></td></tr>");
@@ -304,18 +330,39 @@ function getProfileData() {
     }
     postUserDataRequestforprofile("http://localhost:5000/profile", userObj, "");
 }
-
+function displayrequests(result)
+{   
+    $("#requsettable").empty()
+    for (var len = 0; len < result.rides.length; len++) {
+        $("#requesttable").append("<table style='text-align:left;border: black 2px solid; margin-left: 20px;'><tr><td> <strong> From </strong> </td><td>" + result.rides[len].source + "</td></tr><tr><td><strong> To </strong> </td><td>" +  result.rides[len].dest+ "</td></tr>  <tr> <td> <strong>Date</strong> </td>  <td>" + result.rides[len].date + " </td>  </tr> <tr><td> <strong>Hour</strong> </td> <td> "+ result.rides[len].hour+ "</td></tr>  <tr><td><strong>Seats</strong></td><td>"+ result.rides[len].seats+" </td>  </tr> <tr><br> <td> </td> <td> <button class = 'btn btn-default' style='color: black; background-color: gold; margin:10px;' onclick='confirmride(" + len + ")'>CONFIRM</button><button class = 'btn btn-default' style='color: black; background-color: gold;' onclick='declineride(" + len + ")'>DECLINE</button></td> </tr> </table>");
+    }
+}
 function book(index) {
     var required = data.rides[index];
     var seats = document.getElementById("seats").value;
     var bookride = {
         "userId": Cookies.get("user_id"),
         "userMail": Cookies.get("email"),
-        "rid": required.rid
+        "rid": required.rid,
+        "seats": seats,
+        "name": required.name,
+        "did": required.id
     };
-    postOfferRequest("http://localhost:5000/book", bookride, "../user/booking-successful.html?src=" + required.source + "&dest=" + required.dest + "&date=" + required.date + "&seats=" + seats + "&hour=" + required.hour);
+    postOfferRequest("http://localhost:5000/requestbook", bookride, "../user/requestcompleted.html?src=" + required.source + "&dest=" + required.dest + "&date=" + required.date + "&seats=" + seats + "&hour=" + required.hour);
 }
 
+function confirmride(index){
+    var required = data2.rides[index];
+    var confirmride = {
+        "userId": Cookies.get("user_id"),
+        "userMail": Cookies.get("email"),
+        "rid": required.rid,
+        "seats": required.seats,
+        "cid":required.cid
+    };
+    postOfferRequest("http://localhost:5000/confirmbook", confirmride, "../user/confirmedsuccessfully.html?src=" + required.source + "&dest=" + required.dest + "&date=" + required.date + "&seats=" + required.seats + "&hour=" + required.hour);
+
+}
 function displayOfferedRides(result) {
     $("#past").html("");
     $("#upcoming").html("");
