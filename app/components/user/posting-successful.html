@@ -21,7 +21,7 @@
         <div class="inner">
             <a href="../../../index.html" class="logo"><strong>FabCab</strong> </a>
             <nav id="nav">
-                    <a href="../user/account.html"> <i class="fa fa-arrow-left" aria-hidden="true"></i> Back</a>            <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+                <a href="../user/account.html"> <i class="fa fa-arrow-left" aria-hidden="true"></i> Back</a> <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
             </nav>
         </div>
     </header>
@@ -35,7 +35,7 @@
                 </header>
                 <br />
                 <div class="row">
-                    <div style="position: relative; width:50%;">
+                    <div class="col-md-6" style="position: relative; width:50%;">
 
                         <table style="text-align:left;">
                             <tr>
@@ -66,7 +66,7 @@
                             </tr>
                         </table>
                     </div>
-
+                    <div class="col-md-6" style="height:400px; width:400px" id="map-canvas"></div>
                 </div>
             </div>
         </div>
@@ -78,6 +78,7 @@
 
     <!-- Scripts -->
     <script src="../../../assets/js/jquery.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBsih7T6hzAnCvBTf_1pzfPNZ6kBwnhIz8"></script>
     <script src="../../../assets/js/skel.min.js"></script>
     <!-- <script src="assets/js/util.js"></script> -->
     <!-- <script src="../../../assets/js/main.js"></script> -->
@@ -87,10 +88,10 @@
 
     <script>
         $(document).ready(function() {
-        
-            if (Cookies.get("user_id")==null){
+
+            if (Cookies.get("user_id") == null) {
                 alert("Oops! You are not logged in.")
-                location.href="/app/components/Login/login.html";
+                location.href = "/app/components/Login/login.html";
             }
             getData();
 
