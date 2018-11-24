@@ -21,7 +21,25 @@
         <div class="inner">
             <a href="../../../index.html" class="logo"><strong>FabCab</strong> </a>
             <nav id="nav">
-                    <a href="../user/account.html"> <i class="fa fa-arrow-left" aria-hidden="true"></i> Back</a>            <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+                    <a href="#">
+                            <div class="dropdown">
+                                <div class="dropbtn" id= "nameinnavbar"> 
+
+                                </div>
+                                <div class="dropdown-content">
+                                    <a href="/app/components/user/account.html">Profile</a>
+                                    <a href="/app/components/user/rides-request.html" onclick="displayrequests()">Requests</a>
+                                    <a href="/app/components/user/bookings.html">Bookings</a>
+                                    <a href="/app/components/user/offeredrides.html">Offered Rides</a>
+                                    <a href="/app/components/Login/changepassword.html">Change Password</a>
+                                
+                                    <a onclick="signOut()">Sign out</a>
+                                </div>
+                            </div>
+                        </a>
+                <a href="/app/components/Traveller/find-a-ride.html"> <i class="fa fa-car" aria-hidden="true"></i> Find a Ride</a>
+                <a href="/app/components/Traveller/offerr-ride.html"> <i class="fa fa-plus-square" aria-hidden="true"></i> Offer a Ride</a>         
+                    <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
             </nav>
         </div>
     </header>
@@ -39,29 +57,29 @@
 
                         <table style="text-align:left;">
                             <tr>
-                                <td> <label for="from" style="">From </label></td>
+                                <td> <strong>From </strong> </td>
                                 <td id="frominsp"> </td>
                             </tr>
                             <tr>
-                                <td> <label for="to">To </label></td>
+                                <td> <strong> To</strong> </td>
                                 <td id="toinsp"> </td>
                             </tr>
 
                             <tr>
-                                <td> <label for="date">Date </label></td>
+                                <td> <strong> Date</strong> </td>
                                 <td id="dateinsp"> </td>
                             </tr>
                             <tr>
-                                <td> <label for="Hour">Hour </label></td>
+                                <td> <strong>Hour</strong> </td>
                                 <td id="hourinsp"> </td>
                             </tr>
 
                             <tr>
-                                <td> <label for="seats">Seats </label></td>
+                                <td> <strong>Seats</strong> </td>
                                 <td id="seatsinsp"> </td>
                             </tr>
                             <tr>
-                                <td> <label for="seats">Price </label></td>
+                                <td><strong>Price </strong></td>
                                 <td id="priceinsp"> </td>
                             </tr>
                         </table>
@@ -84,16 +102,15 @@
     <script src="../../../DatePickerX-master/src/js/DatePickerX.js"></script>
     <script src="user.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
-
+    <script src="/app/components/user/user.js"></script>
     <script>
         $(document).ready(function() {
-        
+            $("#nameinnavbar").html(Cookies.get("name")) 
             if (Cookies.get("user_id")==null){
                 alert("Oops! You are not logged in.")
                 location.href="/app/components/Login/login.html";
             }
             getData();
-
         });
     </script>
 

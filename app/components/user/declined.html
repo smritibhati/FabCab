@@ -1,0 +1,102 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>FabCab</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../../../assets/css/main.css" />
+    <link rel="shortcut icon" href="../../../images/favicon.ico">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="../../../DatePickerX-master/dist/css/DatePickerX.css">
+
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="inner">
+            <a href="../../../index.html" class="logo"><strong>FabCab</strong> </a>
+            <nav id="nav">
+            </nav>
+            <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+        </div>
+    </header>
+
+    <!-- Banner -->
+    <section id="banner2">
+        <div class="container-fluid">
+            <div class="inner">
+                <header>
+                    <p style="font-size: 2em; text-align:left; color:grey;">Booking Declined <i class="fa fa-check-circle" aria-hidden="true" style="color:gold"></i> </p>
+                </header>
+                <br />
+                <div class="row">
+                    <div style="position: relative; width:50%;">
+
+                           You have declined to ride
+                    </div>
+
+                </div>
+            </div>
+            <div id = "map" onload="initMap()"></div>
+        </div>
+    </section>
+
+
+    <!-- Three -->
+
+
+    <!-- Scripts -->
+    <script src="../../../assets/js/jquery.min.js"></script>
+    <script src="../../../assets/js/skel.min.js"></script>
+    <script src="../../../assets/js/util.js"></script>
+    <script src="../../../assets/js/main.js"></script>
+    <script src="../Traveller/ride.js"></script>
+    <script src="../../../DatePickerX-master/src/js/DatePickerX.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+
+    <script>
+            $(document).ready(function( ){
+                if(Cookies.get("name")==null){
+                alert("Oops! You are not logged in. ");
+                location.href="/app/components/Login/login.html"
+            }
+                displaybooking();
+        });
+        
+        </script>
+        <script>
+            function initMap() {
+                var geocoder = new google.maps.Geocoder();
+                var source = document.getElementById("frominbs");
+                var dest = document.getElementById("toinbs");
+                var slat,slng,dlat,dlng;
+                geocoder.geocode({'address':source},function(results,status){
+                    if(status == google.maps.GeocoderStatus.OK){
+                        slat = results[0].geometry.location.lat();
+                        slng = results[0].geometry.location.lng();
+                    }
+                });
+                geocoder.geocode({'address':dest},function(results,status){
+                    if(status == google.maps.GeocoderStatus.OK){
+                        dlat = results[0].geometry.location.lat();
+                        dlng = results[0].geometry.location.lng();
+                    }
+                });
+                var sourceProp = {lat: slat, lng: slng};
+                var destProp = {lat: dlat, lng: dlng};
+                var map = new google.maps.Map( document.getElementById('map'), {zoom: 4, center: sourceProp, position: destProp});
+                var marker = new google.maps.Marker({position: uluru, map: map});
+            }
+        </script>
+        <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8-biRTegRnn5jDJNoPbyZ9oWUicObzI0&callback=initMap">
+        </script>
+
+</body>
+
+</html>

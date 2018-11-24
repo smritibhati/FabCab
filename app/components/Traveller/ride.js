@@ -253,6 +253,15 @@ function getriderequests() {
  }
  postRequestRequest("http://localhost:5000/requested", userObj);
 }
+function getnotifications() {
+    //send request to getrequest
+    //for each object in the array display in the table
+    var userObj = {
+       "userId": Cookies.get("user_id"),
+       "userMail": Cookies.get("email")
+    }
+    postNotiRequest("http://localhost:5000/bnotify", userObj);
+   }
 
 function postOfferRequest(postUrl, userData, nextPageUrl) {
     var response = $.ajax({
@@ -300,9 +309,25 @@ function postRequestRequest(postUrl, userData) {
         url: postUrl,
         data: JSON.stringify(userData),
         success: function(result) {
-            console.log("Successfully received offerd rides");
+            console.log("Successfully received requested rides");
             data2 = result;
             displayrequests(result);
+        }
+
+    });
+
+    response.error(function() {})
+}
+function postNotiRequest(postUrl, userData) {
+    var response = $.ajax({
+        type: "POST",
+        contentType: "application/json;",
+        url: postUrl,
+        data: JSON.stringify(userData),
+        success: function(result) {
+            console.log("Successfully received offerd rides");
+            data2 = result;
+            displaynotifications(result);
         }
 
     });
@@ -337,6 +362,23 @@ function displayrequests(result)
         $("#requesttable").append("<table style='text-align:left;border: black 2px solid; margin-left: 20px;'><tr><td> <strong> From </strong> </td><td>" + result.rides[len].source + "</td></tr><tr><td><strong> To </strong> </td><td>" +  result.rides[len].dest+ "</td></tr>  <tr> <td> <strong>Date</strong> </td>  <td>" + result.rides[len].date + " </td>  </tr> <tr><td> <strong>Hour</strong> </td> <td> "+ result.rides[len].hour+ "</td></tr>  <tr><td><strong>Seats</strong></td><td>"+ result.rides[len].seats+" </td>  </tr> <tr><br> <td> </td> <td> <button class = 'btn btn-default' style='color: black; background-color: gold; margin:10px;' onclick='confirmride(" + len + ")'>CONFIRM</button><button class = 'btn btn-default' style='color: black; background-color: gold;' onclick='declineride(" + len + ")'>DECLINE</button></td> </tr> </table>");
     }
 }
+function displaynotifications(result)
+{   
+    $("#notitable").empty()
+    for (var len = 0; len < result.status.length; len++) {
+        {
+            if(result.status[len].type==2){
+                $("#notitable").append("<tr><td><strong>" + result.status[len].xname + "</strong> has CONFIRMED to ride with you from <strong> " + result.status[len].source + " </strong> to <strong> " + result.status[len].dest + "</strong> on " + result.status[len].date + "</td></tr>")
+            }
+            else if(result.status[len].type==1){
+                $("#notitable").append("<tr><td><strong>" + result.status[len].xname + "</strong> has REQUESTED to ride with you from <strong> " + result.status[len].source + " </strong> to <strong> " + result.status[len].dest + "</strong> on " + result.status[len].date + "</td></tr>")
+            }
+            else if(result.status[len].type==3){
+                $("#notitable").append("<tr><td><strong>" + result.status[len].xname + "</strong> has DECLINED to ride with you from <strong> " + result.status[len].source + " </strong> to <strong> " + result.status[len].dest + "</strong> on " + result.status[len].date + "</td></tr>")
+            }
+        }    
+    }
+}
 function book(index) {
     var required = data.rides[index];
     var seats = document.getElementById("seats").value;
@@ -360,7 +402,19 @@ function confirmride(index){
         "seats": required.seats,
         "cid":required.cid
     };
-    postOfferRequest("http://localhost:5000/confirmbook", confirmride, "../user/confirmedsuccessfully.html?src=" + required.source + "&dest=" + required.dest + "&date=" + required.date + "&seats=" + required.seats + "&hour=" + required.hour);
+    postOfferRequest("http://localhost:5000/confirmbook", confirmride, "/app/components/user/booking-successful.html?src=" + required.source + "&dest=" + required.dest + "&date=" + required.date + "&seats=" + required.seats + "&hour=" + required.hour);
+
+}
+function declineride(index){
+    var required = data2.rides[index];
+    var declineride = {
+        "userId": Cookies.get("user_id"),
+        "userMail": Cookies.get("email"),
+        "rid": required.rid,
+        "seats": required.seats,
+        "cid":required.cid
+    };
+    postOfferRequest("http://localhost:5000/declinebook", declineride, "/app/components/user/declined.html");
 
 }
 function displayOfferedRides(result) {
@@ -423,9 +477,9 @@ function postUserDataRequest(postUrl, userData, nextPageUrl) {
         success: function(result) {
             Cookies.set("user_id", result.userId);
             Cookies.set("name", result.userName);
+            $("#nameinnavbar").html(Cookies.get("name"));
             displayUserData(result)
                 // location.href = nextPageUrl;
-
         }
 
     });
@@ -459,6 +513,7 @@ function getDataRequest(postUrl) {
         success: function(result) {
             Cookies.set("email", result.userMail);
             Cookies.set("name", result.userName);
+            $("#nameinnavbar").html(Cookies.get("name"));
             displayUserData(result);
         }
 
@@ -476,7 +531,7 @@ function getUserData() {
 }
 
 function displayUserData(result) {
-    $("#nameinnavbar").html(result.userName);
+    $(".nameinnavbar").html(result.userName);
     $("#aname").html(result.userName);
     $("#aemail").html(result.userMail);
     $("#aphone").html(result.userMob);

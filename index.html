@@ -16,30 +16,39 @@
 
     <!-- Header -->
     <header id="header">
-        <div class="inner">
-            <a href="index.html" class="logo"><strong>FabCab</strong> </a>
-            <nav id="nav">
-                <a href="#">
-                    <div class="dropdown">
-                        <div class="dropbtn" id="nameinnavbaronindex"> </div>
-                        <div class="dropdown-content">
-                            <a href="app/components/user/account.html">Profile</a>
-                            <a href="app/components/user/rides-request.html" onclick="displayrequests()">Requests</a>
-                            <a href="app/components/user/bookings.html">Bookings</a>
-                            <a href="app/components/user/offeredrides.html">Offered Rides</a>
-                            <a href="app/components/Login/changepassword.html">Change Password</a>
-                            <hr>
-                            <a onclick="signOut()">Sign out</a>
+            <div class="inner">
+                <a href="../../../index.html" class="logo"><strong>FabCab</strong> </a>
+    
+                <nav id="nav">
+                    <a href="#">
+                        <div class="dropdown">
+                            <div class="dropbtn" id="nameinnavbaronindex"> </div>
+                            <div class="dropdown-content">
+                                    <div class="dropdown-content">
+                                            <a href="/app/components/user/account.html">Profile</a>
+                                            <a href="/app/components/user/rides-request.html" onclick="displayrequests()">Requests</a>
+                                            <a href="/app/components/user/bookings.html">Bookings</a>
+                                            <a href="/app/components/user/offeredrides.html">Offered Rides</a>
+                                            <a href="/app/components/Login/changepassword.html">Change Password</a>
+                                        
+                                            <a onclick="signOut()">Sign out</a>
+                                    </div>
+                            </div>
                         </div>
-                    </div>
-                </a>
-                <a href="app/components/Traveller/find-a-ride.html">Find a Ride</a>
-                <a href="app/components/Traveller/offerr-ride.html">Offer a Ride</a>
-                <a href="app/components/Login/login.html" id="login">Login</a>
-            </nav>
-            <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
-        </div>
-    </header>
+                    </a>
+                    <a href="app/components/Traveller/find-a-ride.html"> <i class="fa fa-car" aria-hidden="true"></i> Find a Ride</a>
+                    <a href="app/components/Traveller/offerr-ride.html"> <i class="fa fa-plus-square" aria-hidden="true"></i> Offer a Ride</a>
+                    <a href="app/components/Login/login.html" id="login">Login</a>
+
+                   <!-- <a >  <span><span id="badge" class="badge" style="background-color:red; position: absolute;
+                      bottom:58%;
+                      left: 99%;
+                      z-index: 10;}">4</span></span></a>
+                    <a onclick="notifications()" class="glyphicon glyphicon-bell" style="font-family: 'Glyphicons Halflings'!important;"></a> -->
+                </nav>
+                <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+            </div>
+        </header>
 
     <!-- Banner -->
     <section id="banner">
@@ -169,13 +178,14 @@
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
     <script src="DatePickerX-master/src/js/DatePickerX.js"></script>
 
-    <script src="assets/js/main.js"></script>
-    <script src="app/components/Traveller/ride.js"></script>
-
+    <script src="/assets/js/main.js"></script>
+    <script src="/app/components/Traveller/ride.js"></script>
+    <script src="/app/components/user/user.js"></script>
     <script>
         $(document).ready(function() {
             checkLoginStatus();
         });
+        $("#nameinnavbar").html(Cookies.get("name"));
     </script>
 
 </body>

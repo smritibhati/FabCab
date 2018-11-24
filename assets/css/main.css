@@ -2024,7 +2024,7 @@
 	label {
 		color: #555;
 		display: block;
-		font-size: 1.25em;
+		font-size: 1.5em;
 		font-weight: 600;
 		margin: 0 0 1em 0;
 	}
@@ -2117,7 +2117,7 @@
 		padding: 0.75em 1em;
 	}
 	td label{
-		font-size: 0.75em!important;
+		font-size: 1.25em!important;
 	}
 	input[type=],
 	input[type="radio"] {

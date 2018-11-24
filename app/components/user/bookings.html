@@ -18,7 +18,24 @@
       <a href="../../../index.html" class="logo"><strong>FabCab</strong> </a>
       
       <nav id="nav">
-        <a href="../user/account.html"> <i class="fa fa-arrow-left" aria-hidden="true"></i> Back</a>            <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+          <a href="#">
+              <div class="dropdown">
+                  <div class="dropbtn" id= "nameinnavbar"> 
+
+                  </div>
+                  <div class="dropdown-content">
+                      <a href="/app/components/user/account.html">Profile</a>
+                      <a href="/app/components/user/rides-request.html" onclick="displayrequests()">Requests</a>
+                      <a href="/app/components/user/bookings.html">Bookings</a>
+                      <a href="/app/components/user/offeredrides.html">Offered Rides</a>
+                      <a href="/app/components/Login/changepassword.html">Change Password</a>
+                      <a onclick="signOut()">Sign out</a>
+                  </div>
+              </div>
+          </a>
+  <a href="../Traveller/find-a-ride.html"> <i class="fa fa-car" aria-hidden="true"></i> Find a Ride</a>
+  <a href="app/components/Traveller/offerr-ride.html"> <i class="fa fa-plus-square" aria-hidden="true"></i> Offer a Ride</a>         
+      <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>        <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
         </nav>
       <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
     </div>
@@ -48,9 +65,10 @@
 <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
 <script src="../Traveller/ride.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
-
+<script src="/app/components/user/user.js"></script>
 <script>
 $(document).ready(function(){
+    $("#nameinnavbar").html(Cookies.get("name"))
     $(".nav-tabs a").click(function(){
         $(this).tab('show');
     });
