@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link rel="stylesheet" href="../../../DatePickerX-master/dist/css/DatePickerX.css">
-
 </head>
 
 <body>
@@ -35,35 +34,37 @@
                 </header>
                 <br />
                 <div class="row">
-                    <div style="position: relative; width:50%;">
+                    <div class="col-md-6" style="position: relative; width:50%;">
 
-                            <table style="text-align:left;">
-                                    <tr>
-                                    <td> From </td>
-                                    <td id="frominbs"> </td>                        
-                                    </tr>
-                                    
-                                    <tr>
-                                        <td>To </label></td>
-                                        <td id="toinbs"> </td>
-                                    </tr>
-                                        
-                                    <tr>
-                                            <td> Date </td>
-                                            <td id="dateinbs"> </td>                        
-                                        </tr>
-                                    <tr>
-                                            <td> Hour </td>
-                                            <td id="hourinbs"> </td>                        
-                                        </tr>
-                                       
-                                    <tr>
-                                            <td> <label for="seats">Seats </label></td>
-                                            <td id="seatsinbs"> </td>                        
-                                    </tr>
+                        <table style="text-align:left;">
+                            <tr>
+                                <td> From </td>
+                                <td id="frominbs"> </td>
+                            </tr>
+
+                            <tr>
+                                <td>To </label>
+                                </td>
+                                <td id="toinbs"> </td>
+                            </tr>
+
+                            <tr>
+                                <td> Date </td>
+                                <td id="dateinbs"> </td>
+                            </tr>
+                            <tr>
+                                <td> Hour </td>
+                                <td id="hourinbs"> </td>
+                            </tr>
+
+                            <tr>
+                                <td> <label for="seats">Seats </label></td>
+                                <td id="seatsinbs"> </td>
+                            </tr>
                         </table>
                     </div>
 
+                    <div class="col-md-6" style="height:400px; width:400px" id="map-canvas"></div>
                 </div>
             </div>
         </div>
@@ -75,6 +76,7 @@
 
     <!-- Scripts -->
     <script src="../../../assets/js/jquery.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBsih7T6hzAnCvBTf_1pzfPNZ6kBwnhIz8"></script>
     <script src="../../../assets/js/skel.min.js"></script>
     <script src="../../../assets/js/util.js"></script>
     <script src="../../../assets/js/main.js"></script>
@@ -83,15 +85,14 @@
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
 
     <script>
-            $(document).ready(function( ){
-                if(Cookies.get("name")==null){
+        $(document).ready(function() {
+            if (Cookies.get("name") == null) {
                 alert("Oops! You are not logged in. ");
-                location.href="/app/components/Login/login.html"
+                location.href = "/app/components/Login/login.html"
             }
-                displaybooking();
+            displaybooking();
         });
-        
-        </script>
+    </script>
 
 </body>
 
